@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  l>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalGummies Pro — Boost Your Performance Naturally</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf4ff',
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            300: '#f0abfc',
+                            400: '#e879f9',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            700: '#a21caf',
+                            800: '#86198f',
+                            900: '#701a75',
+                        },
+                        dark: {
+                            800: '#1a1a2e',
+                            900: '#0f0f1a',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(217, 70, 239, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(217, 70, 239, 0.8); }
+        }
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+        }
+        @keyframes count-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes badge-bounce {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-5px) rotate(3deg); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .float-animation { animation: float 3s ease-in-out infinite; }
+        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        .shake-animation { animation: shake 0.5s ease-in-out; }
+        .badge-bounce { animation: badge-bounce 2s ease-in-out infinite; }
+        .shimmer-btn {
+            background: linear-gradient(110deg, #d946ef 0%, #e879f9 25%, #f0abfc 50%, #e879f9 75%, #d946ef 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+        .marquee-container { overflow: hidden; }
+        .marquee-content {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+        .slide-up { animation: slide-up 0.6s ease-out forwards; }
+
+        .countdown-digit {
+            background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+            border: 1px solid rgba(217, 70, 239, 0.3);
+        }
+
+        .product-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(217, 70, 239, 0.2);
+        }
+        .product-card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .sticky-cta.visible { transform: translateY(0); }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 40;
+            animation: badge-bounce 2s ease-in-out infinite;
+        }
+
+        .toast-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            transform: translateX(120%);
+            transition: transform 0.4s ease;
+        }
+        .toast-notification.show { transform: translateX(0); }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            z-index: 60;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+        .modal-content {
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #d946ef, #f0abfc, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-mesh {
+            background-image: 
+                radial-gradient(at 20% 80%, rgba(217, 70, 239, 0.15) 0%, transparent 50%),
+                radial-gradient(at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(251, 191, 36, 0.08) 0%, transparent 50%);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #d946ef;
+            box-shadow: 0 0 0 3px rgba(217, 70, 239, 0.2);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a2e; }
+        ::-webkit-scrollbar-thumb { background: #d946ef; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c026d3; }
+
+        .star-rating { color: #fbbf24; }
+    </style>
+</head>
+<body class="bg-dark-900 text-white font-sans">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">
+        <div class="bg-green-500 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5"></i>
+            <span id="toast-message">Order placed successfully!</span>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto bg-dark-800 rounded-3xl border border-brand-700/30 p-6 md:p-8 relative">
+            <button onclick="closeModalDirect()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center gap-2 bg-brand-500/20 px-4 py-2 rounded-full mb-3">
+                    <i data-lucide="shopping-bag" class="w-4 h-4 text-brand-400"></i>
+                    <span class="text-brand-300 text-sm font-semibold">PLACE YOUR ORDER</span>
+                </div>
+                <h3 class="text-2xl font-bold">Complete Your Order</h3>
+                <p class="text-gray-400 text-sm mt-1">Fill in your details below. We'll reach out via WhatsApp to confirm.</p>
+            </div>
+
+            <!-- Selected Product Summary -->
+            <div id="selectedProductSummary" class="bg-brand-500/10 border border-brand-500/20 rounded-2xl p-4 mb-6 flex items-center gap-4">
+                <img id="summaryImg" src="" alt="Product" class="w-16 h-16 rounded-xl object-cover">
+                <div>
+                    <p id="summaryName" class="font-semibold text-sm"></p>
+                    <p id="summaryPrice" class="text-brand-400 font-bold"></p>
+                </div>
+            </div>
+
+            <form id="orderForm" onsubmit="handleOrder(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Full Name <span class="text-red-400">*</span></label>
+                    <div class="relative">
+                        <i data-lucide="user" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                        <input type="text" id="fullName" required placeholder="Enter your full name" 
+                            class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Phone Number <span class="text-red-400">*</span></label>
+                    <div class="relative">
+                        <i data-lucide="phone" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                        <input type="tel" id="phoneNumber" required placeholder="e.g. 08012345678" 
+                            class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Delivery Address <span class="text-red-400">*</span></label>
+                    <div class="relative">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-gray-500 absolute left-3 top-3"></i>
+                        <textarea id="deliveryAddress" required rows="3" placeholder="Full delivery address including city & state" 
+                            class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition resize-none"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Quantity</label>
+                    <select id="quantity" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-white transition">
+                        <option value="1">1 Pack</option>
+                        <option value="2">2 Packs (Save 10%)</option>
+                        <option value="3">3 Packs (Save 15%)</option>
+                        <option value="5">5 Packs (Save 20% — Best Value)</option>
+                    </select>
+                </div>
+
+                <div class="bg-gold-500/10 border border-gold-500/30 rounded-xl p-3 flex items-start gap-2">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-gold-400 mt-0.5 flex-shrink-0"></i>
+                    <p class="text-xs text-gold-400">🔒 Your information is secure. We will only contact you via WhatsApp to confirm your order.</p>
+                </div>
+
+                <button type="submit" class="w-full shimmer-btn text-white font-bold py-4 rounded-xl text-lg hover:scale-[1.02] transition-transform flex items-center justify-center gap-2">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    Order Now via WhatsApp
+                </button>
+                <p class="text-center text-gray-500 text-xs">You'll be redirected to WhatsApp to complete your order</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="detailModal" class="modal-overlay" onclick="closeDetailModal(event)">
+        <div class="modal-content max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto bg-dark-800 rounded-3xl border border-brand-700/30 relative">
+            <button onclick="closeDetailModalDirect()" class="absolute top-4 right-4 z-10 text-gray-400 hover:text-white transition bg-dark-900/80 rounded-full p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="detailContent"></div>
+        </div>
+    </div>
+
+    <!-- Urgency Top Bar -->
+    <div class="bg-gradient-to-r from-brand-700 via-brand-600 to-purple-700 py-2.5 text-center relative overflow-hidden">
+        <div class="marquee-container">
+            <div class="marquee-content whitespace-nowrap">
+                <span class="inline-flex items-center gap-2 px-8 text-sm font-medium">
+                    <i data-lucide="flame" class="w-4 h-4 text-gold-400"></i>
+                    🔥 FLASH SALE — 50% OFF TODAY ONLY! 🔥 &nbsp;&nbsp;&nbsp;
+                    <i data-lucide="truck" class="w-4 h-4 text-green-300"></i>
+                    FREE DELIVERY NATIONWIDE &nbsp;&nbsp;&nbsp;
+                    <i data-lucide="clock" class="w-4 h-4 text-yellow-300"></i>
+                    OFFER ENDS IN: <span id="topCountdown" class="font-bold text-yellow-300"></span> &nbsp;&nbsp;&nbsp;
+                    <i data-lucide="star" class="w-4 h-4 text-gold-400"></i>
+                    4,800+ HAPPY CUSTOMERS &nbsp;&nbsp;&nbsp;
+                    <i data-lucide="flame" class="w-4 h-4 text-gold-400"></i>
+                    🔥 FLASH SALE — 50% OFF TODAY ONLY! 🔥 &nbsp;&nbsp;&nbsp;
+                    <i data-lucide="truck" class="w-4 h-4 text-green-300"></i>
+                    FREE DELIVERY NATIONWIDE &nbsp;&nbsp;&nbsp;
+                    <i data-lucide="clock" class="w-4 h-4 text-yellow-300"></i>
+                    OFFER ENDS IN: <span class="font-bold text-yellow-300 topCountdownClone"></span> &nbsp;&nbsp;&nbsp;
+                    <i data-lucide="star" class="w-4 h-4 text-gold-400"></i>
+                    4,800+ HAPPY CUSTOMERS
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-dark-900/95 backdrop-blur-lg sticky top-0 z-40 border-b border-gray-800/50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-purple-700 rounded-xl flex items-center justify-center">
+                    <i data-lucide="zap" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold">Vital<span class="text-brand-400">Gummies</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-6 text-sm text-gray-300">
+                <a href="#products" class="hover:text-brand-400 transition">Products</a>
+                <a href="#benefits" class="hover:text-brand-400 transition">Benefits</a>
+                <a href="#reviews" class="hover:text-brand-400 transition">Reviews</a>
+                <a href="#faq" class="hover:text-brand-400 transition">FAQ</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="#order-section" class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 px-5 py-2.5 rounded-xl text-sm font-semibold transition">
+                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                    Order Now
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-400 hover:text-white transition" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-dark-900 border-t border-gray-800 px-4 py-4 space-y-3">
+            <a href="#products" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-brand-400 transition">Products</a>
+            <a href="#benefits" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-brand-400 transition">Benefits</a>
+            <a href="#reviews" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-brand-400 transition">Reviews</a>
+            <a href="#faq" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-brand-400 transition">FAQ</a>
+            <a href="#order-section" onclick="closeMobileMenu()" class="block bg-brand-600 text-center py-3 rounded-xl font-semibold">Order Now</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-mesh overflow-hidden">
+        <!-- Background decorations -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 relative z-10">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <!-- Left: Copy -->
+                <div class="order-2 md:order-1 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-500/20 border border-brand-500/30 px-4 py-2 rounded-full mb-6 badge-bounce">
+                        <i data-lucide="flame" class="w-4 h-4 text-gold-400"></i>
+                        <span class="text-brand-300 text-sm font-bold">50% OFF — Limited Time!</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-black leading-tight mb-4">
+                        Reclaim Your <br>
+                        <span class="gradient-text">Manhood & Power</span>
+                    </h1>
+                    <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-6 max-w-xl mx-auto md:mx-0">
+                        The #1 natural performance gummy trusted by <strong class="text-white">4,800+ men</strong> across Nigeria. Boost stamina, enhance drive, and last <strong class="text-brand-400">3x longer</strong> — guaranteed!
+                    </p>
+
+                    <!-- Trust badges -->
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+                        <div class="flex items-center gap-2 bg-dark-800/60 border border-gray-700/50 px-3 py-2 rounded-lg text-xs">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-green-400"></i>
+                            <span class="text-gray-300">100% Natural</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-dark-800/60 border border-gray-700/50 px-3 py-2 rounded-lg text-xs">
+                            <i data-lucide="heart" class="w-4 h-4 text-red-400"></i>
+                            <span class="text-gray-300">No Side Effects</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-dark-800/60 border border-gray-700/50 px-3 py-2 rounded-lg text-xs">
+                            <i data-lucide="truck" class="w-4 h-4 text-blue-400"></i>
+                            <span class="text-gray-300">Free Delivery</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                        <a href="#order-section" class="shimmer-btn text-white font-bold px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform inline-flex items-center justify-center gap-2 pulse-glow">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            Order Now — 50% OFF
+                        </a>
+                        <a href="#products" class="border border-gray-600 hover:border-brand-500 text-gray-300 hover:text-brand-400 font-semibold px-8 py-4 rounded-xl text-lg transition inline-flex items-center justify-center gap-2">
+                            <i data-lucide="eye" class="w-5 h-5"></i>
+                            View Products
+                        </a>
+                    </div>
+
+                    <!-- Social Proof -->
+                    <div class="mt-8 flex items-center gap-4 justify-center md:justify-start">
+                        <div class="flex -space-x-2">
+                            <img src="http://static.photos/people/200x200/1" alt="Customer" class="w-10 h-10 rounded-full border-2 border-dark-900 object-cover">
+                            <img src="http://static.photos/people/200x200/2" alt="Customer" class="w-10 h-10 rounded-full border-2 border-dark-900 object-cover">
+                            <img src="http://static.photos/people/200x200/3" alt="Customer" class="w-10 h-10 rounded-full border-2 border-dark-900 object-cover">
+                            <img src="http://static.photos/people/200x200/4" alt="Customer" class="w-10 h-10 rounded-full border-2 border-dark-900 object-cover">
+                            <div class="w-10 h-10 rounded-full border-2 border-dark-900 bg-brand-600 flex items-center justify-center text-xs font-bold">+4.8K</div>
+                        </div>
+                        <div>
+                            <div class="star-rating text-sm">★★★★★</div>
+                            <p class="text-gray-500 text-xs">4,800+ verified buyers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Product Image -->
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-brand-500/20 rounded-full blur-3xl scale-75"></div>
+                        <img src="http://static.photos/wellness/640x360/10" alt="VitalGummies Pro" class="relative z-10 rounded-3xl shadow-2xl float-animation max-w-sm md:max-w-md w-full">
+                        <!-- Badge -->
+                        <div class="absolute -top-3 -right-3 bg-gold-500 text-dark-900 font-black px-4 py-2 rounded-xl text-sm rotate-6 shadow-lg z-20 badge-bounce">
+                            BEST SELLER
+                        </div>
+                        <div class="absolute -bottom-2 -left-3 bg-green-500 text-white font-bold px-4 py-2 rounded-xl text-sm -rotate-3 shadow-lg z-20">
+                            <i data-lucide="check-circle" class="w-4 h-4 inline"></i> NAFDAC Approved
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN TIMER -->
+    <section class="bg-gradient-to-r from-brand-900 via-dark-800 to-brand-900 border-y border-brand-700/30">
+        <div class="max-w-4xl mx-auto px-4 py-6 text-center">
+            <p class="text-sm text-brand-300 font-semibold mb-3 flex items-center justify-center gap-2">
+                <i data-lucide="alarm-clock" class="w-5 h-5"></i>
+                HURRY! THIS OFFER EXPIRES IN:
+            </p>
+            <div class="flex justify-center gap-3 md:gap-4" id="countdown">
+                <div class="text-center">
+                    <div class="countdown-digit rounded-xl px-4 py-3 md:px-6 md:py-4">
+                        <span id="hours" class="text-3xl md:text-4xl font-black text-brand-400">02</span>
+                    </div>
+                    <span class="text-xs text-gray-500 mt-1 block">Hours</span>
+                </div>
+                <div class="text-3xl md:text-4xl font-black text-brand-400 self-start pt-3 md:pt-4">:</div>
+                <div class="text-center">
+                    <div class="countdown-digit rounded-xl px-4 py-3 md:px-6 md:py-4">
+                        <span id="minutes" class="text-3xl md:text-4xl font-black text-brand-400">47</span>
+                    </div>
+                    <span class="text-xs text-gray-500 mt-1 block">Minutes</span>
+                </div>
+                <div class="text-3xl md:text-4xl font-black text-brand-400 self-start pt-3 md:pt-4">:</div>
+                <div class="text-center">
+                    <div class="countdown-digit rounded-xl px-4 py-3 md:px-6 md:py-4">
+                        <span id="seconds" class="text-3xl md:text-4xl font-black text-brand-400">33</span>
+                    </div>
+                    <span class="text-xs text-gray-500 mt-1 block">Seconds</span>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mt-3">⚡ <span id="viewerCount" class="text-gold-400 font-bold">47</span> people are viewing this right now</p>
+        </div>
+    </section>
+
+    <!-- PROBLEM / AGITATION SECTION -->
+    <section class="bg-dark-900 bg-mesh">
+        <div class="max-w-4xl mx-auto px-4 py-16 md:py-20">
+            <div class="text-center mb-12">
+                <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">Are You Experiencing This?</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">The Silent Struggle That <span class="text-red-400">Destroys</span> Relationships</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4 md:gap-6">
+                <div class="bg-red-500/10 border border-red-500/20 rounded-2xl p-5 flex items-start gap-4 hover:bg-red-500/15 transition">
+                    <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="frown" class="w-5 h-5 text-red-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-300">Quick Ejaculation</h4>
+                        <p class="text-gray-500 text-sm mt-1">You finish before she even starts enjoying it — leaving her frustrated</p>
+                    </div>
+                </div>
+                <div class="bg-red-500/10 border border-red-500/20 rounded-2xl p-5 flex items-start gap-4 hover:bg-red-500/15 transition">
+                    <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="battery-low" class="w-5 h-5 text-red-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-300">Low Stamina & Energy</h4>
+                        <p class="text-gray-500 text-sm mt-1">You can't go more than one round — and even that feels like a struggle</p>
+                    </div>
+                </div>
+                <div class="bg-red-500/10 border border-red-500/20 rounded-2xl p-5 flex items-start gap-4 hover:bg-red-500/15 transition">
+                    <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="trending-down" class="w-5 h-5 text-red-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-300">Weak Erections</h4>
+                        <p class="text-gray-500 text-sm mt-1">You can't get it up properly, or it goes soft midway — embarrassing!</p>
+                    </div>
+                </div>
+                <div class="bg-red-500/10 border border-red-500/20 rounded-2xl p-5 flex items-start gap-4 hover:bg-red-500/15 transition">
+                    <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="heart-crack" class="w-5 h-5 text-red-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-red-300">Lost Confidence</h4>
+                        <p class="text-gray-500 text-sm mt-1">You avoid intimacy because you're afraid of disappointing her again</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <p class="text-xl md:text-2xl font-bold text-brand-400">If ANY of this sounds like you... <br>You're NOT alone, and there IS a solution! 👇</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section id="benefits" class="bg-dark-800/50">
+        <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+            <div class="text-center mb-14">
+                <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">Why VitalGummies Pro?</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">Transform Your Bedroom <span class="gradient-text">Performance</span></h2>
+                <p class="text-gray-400 mt-3 max-w-2xl mx-auto">Clinically formulated with 8 powerful natural ingredients that target the root cause of weak performance — not just the symptoms.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+                        <i data-lucide="timer" class="w-7 h-7 text-brand-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Last 3x Longer</h3>
+                    <p class="text-gray-400 text-sm">Go from 2 minutes to 30+ minutes. Our gummies help you control your release and satisfy her completely.</p>
+                </div>
+                <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+                        <i data-lucide="zap" class="w-7 h-7 text-brand-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Rock-Hard Erections</h3>
+                    <p class="text-gray-400 text-sm">Experience stronger, fuller, and longer-lasting erections that will make her eyes roll back.</p>
+                </div>
+                <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+                        <i data-lucide="flame" class="w-7 h-7 text-brand-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Explosive Libido</h3>
+                    <p class="text-gray-400 text-sm">Reignite your sex drive naturally. You'll WANT it more — and be ABLE to deliver every single time.</p>
+                </div>
+                <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+                        <i data-lucide="battery-charging" class="w-7 h-7 text-brand-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Unstoppable Stamina</h3>
+                    <p class="text-gray-400 text-sm">Go round after round without getting tired. She'll be begging for mercy — not for more.</p>
+                </div>
+                <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+                        <i data-lucide="brain" class="w-7 h-7 text-brand-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Confidence Boost</h3>
+                    <p class="text-gray-400 text-sm">Walk into the bedroom with zero anxiety. When you KNOW you can perform, everything changes.</p>
+                </div>
+                <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+                        <i data-lucide="leaf" class="w-7 h-7 text-brand-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">100% Natural Formula</h3>
+                    <p class="text-gray-400 text-sm">No chemicals, no side effects, no prescriptions needed. Just pure, powerful natural ingredients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INGREDIENTS -->
+    <section class="bg-dark-900">
+        <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+            <div class="text-center mb-12">
+                <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">What's Inside?</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">8 Power-Packed <span class="gradient-text">Ingredients</span></h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
+                    <div class="text-3xl mb-2">🟤</div>
+                    <h4 class="font-bold text-sm">Maca Root</h4>
+                    <p class="text-gray-500 text-xs mt-1">Boosts libido & endurance</p>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
+                    <div class="text-3xl mb-2">🌿</div>
+                    <h4 class="font-bold text-sm">Tongkat Ali</h4>
+                    <p class="text-gray-500 text-xs mt-1">Increases testosterone naturally</p>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
+                    <div class="text-3xl mb-2">🫐</div>
+                    <h4 class="font-bold text-sm">L-Arginine</h4>
+                    <p class="text-gray-500 text-xs mt-1">Enhances blood flow</p>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
+                    <div class="text-3xl mb-2">🍊</div>
+                    <h4 class="font-bold text-sm">Zinc</h4>
+                    <p class="text-gray-500 text-xs mt-1">Supports male vitality</p>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
+                    <div class="text-3xl mb-2">🌰</div>
+                    <h4 class="font-bold text-sm">Tribulus</h4>
+                    <p class="text-gray-500 text-xs mt-1">Elevates drive & performance</p>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
+                    <div class="text-3xl mb-2">🧡</div>
+                    <h4 class="font-bold text-sm">Ginseng</h4>
+                    <p class="text-gray-500 text-xs mt-1">Fights fatigue & boosts energy</p>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
+                    <div class="text-3xl mb-2">🫚</div>
+                    <h4 class="font-bold text-sm">Ashwagandha</h4>
+                    <p class="text-gray-500 text-xs mt-1">Reduces stress & anxiety</p>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
+                    <div class="text-3xl mb-2">🖤</div>
+                    <h4 class="font-bold text-sm">Fenugreek</h4>
+                    <p class="text-gray-500 text-xs mt-1">Amplifies performance output</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="bg-dark-800/30">
+        <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+            <div class="text-center mb-14">
+                <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">Our Products</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">Choose Your <span class="gradient-text">Power Pack</span></h2>
+                <p class="text-gray-400 mt-3">Every order comes with FREE delivery & a 30-day money-back guarantee</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="productGrid">
+                <!-- Product Card 1 -->
+                <div class="product-card-hover bg-dark-900 border border-gray-800 rounded-3xl overflow-hidden relative group">
+                    <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">-50%</div>
+                    <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800">
+                        <img src="http://static.photos/wellness/640x360/11" alt="VitalGummies Starter Pack" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <div class="star-rating text-sm mb-2">★★★★★ <span class="text-gray-500 text-xs">(284)</span></div>
+                        <h3 class="font-bold text-lg">Starter Pack</h3>
+                        <p class="text-gray-400 text-sm mt-1">1 Pack — 30 Gummies</p>
+                        <p class="text-gray-500 text-sm mt-2">Perfect to try and feel the difference</p>
+                        <div class="mt-4 flex items-end gap-2">
+                            <span class="text-3xl font-black text-brand-400">₦15,000</span>
+                            <span class="text-gray-500 line-through text-sm">₦30,000</span>
+                        </div>
+                        <button onclick="openOrderModal('Starter Pack', '₦15,000')" class="w-full mt-4 bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                            Buy Now
+                        </button>
+                        <button onclick="showDetail('starter')" class="w-full mt-2 border border-gray-700 hover:border-brand-500 text-gray-400 hover:text-brand-400 font-medium py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                            <i data-lucide="eye" class="w-4 h-4"></i>
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 (Popular) -->
+                <div class="product-card-hover bg-dark-900 border-2 border-brand-500 rounded-3xl overflow-hidden relative group ring-2 ring-brand-500/30">
+                    <div class="absolute top-0 left-0 right-0 bg-brand-600 text-center py-2 text-sm font-bold z-10">🔥 MOST POPULAR — BEST VALUE</div>
+                    <div class="absolute top-12 left-4 bg-gold-500 text-dark-900 text-xs font-bold px-3 py-1 rounded-full z-10">-55%</div>
+                    <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800 mt-8">
+                        <img src="http://static.photos/wellness/640x360/12" alt="VitalGummies Power Pack" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <div class="star-rating text-sm mb-2">★★★★★ <span class="text-gray-500 text-xs">(1,247)</span></div>
+                        <h3 class="font-bold text-lg">Power Pack</h3>
+                        <p class="text-gray-400 text-sm mt-1">3 Packs — 90 Gummies</p>
+                        <p class="text-brand-300 text-sm mt-2 font-semibold">🔥 93% of customers choose this</p>
+                        <div class="mt-4 flex items-end gap-2">
+                            <span class="text-3xl font-black text-brand-400">₦35,000</span>
+                            <span class="text-gray-500 line-through text-sm">₦78,000</span>
+                        </div>
+                        <div class="bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1.5 rounded-lg mt-2 text-center">You save ₦43,000! 💰</div>
+                        <button onclick="openOrderModal('Power Pack', '₦35,000')" class="w-full mt-4 shimmer-btn text-white font-bold py-3 rounded-xl hover:scale-[1.02] transition-transform flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                            Buy Now — Best Value
+                        </button>
+                        <button onclick="showDetail('power')" class="w-full mt-2 border border-gray-700 hover:border-brand-500 text-gray-400 hover:text-brand-400 font-medium py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                            <i data-lucide="eye" class="w-4 h-4"></i>
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card-hover bg-dark-900 border border-gray-800 rounded-3xl overflow-hidden relative group">
+                    <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">-60%</div>
+                    <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800">
+                        <img src="http://static.photos/wellness/640x360/13" alt="VitalGummies Ultimate Pack" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <div class="star-rating text-sm mb-2">★★★★★ <span class="text-gray-500 text-xs">(892)</span></div>
+                        <h3 class="font-bold text-lg">Ultimate Pack</h3>
+                        <p class="text-gray-400 text-sm mt-1">5 Packs — 150 Gummies</p>
+                        <p class="text-gray-500 text-sm mt-2">Maximum results — maximum savings</p>
+                        <div class="mt-4 flex items-end gap-2">
+                            <span class="text-3xl font-black text-brand-400">₦50,000</span>
+                            <span class="text-gray-500 line-through text-sm">₦125,000</span>
+                        </div>
+                        <div class="bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1.5 rounded-lg mt-2 text-center">You save ₦75,000! 🤑</div>
+                        <button onclick="openOrderModal('Ultimate Pack', '₦50,000')" class="w-full mt-4 bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                            Buy Now
+                        </button>
+                        <button onclick="showDetail('ultimate')" class="w-full mt-2 border border-gray-700 hover:border-brand-500 text-gray-400 hover:text-brand-400 font-medium py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                            <i data-lucide="eye" class="w-4 h-4"></i>
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="bg-dark-900">
+        <div class="max-w-4xl mx-auto px-4 py-16 md:py-20">
+            <div class="text-center mb-14">
+                <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">Simple As 1-2-3</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">How It <span class="gradient-text">Works</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-brand-500/20 flex items-center justify-center mx-auto mb-4 relative">
+                        <span class="text-3xl font-black text-brand-400">1</span>
+                        <div class="absolute -top-1 -right-1 w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center">
+                            <i data-lucide="cherry" class="w-3 h-3 text-dark-900"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg">Take 2 Gummies Daily</h3>
+                    <p class="text-gray-400 text-sm mt-2">Just 2 delicious gummies per day — no pills, no bitter taste</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-brand-500/20 flex items-center justify-center mx-auto mb-4 relative">
+                        <span class="text-3xl font-black text-brand-400">2</span>
+                        <div class="absolute -top-1 -right-1 w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center">
+                            <i data-lucide="zap" class="w-3 h-3 text-dark-900"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg">Feel Results in 7 Days</h3>
+                    <p class="text-gray-400 text-sm mt-2">Most men notice harder erections & more energy within the first week</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-brand-500/20 flex items-center justify-center mx-auto mb-4 relative">
+                        <span class="text-3xl font-black text-brand-400">3</span>
+                        <div class="absolute -top-1 -right-1 w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center">
+                            <i data-lucide="crown" class="w-3 h-3 text-dark-900"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-lg">Become a King in Bed</h3>
+                    <p class="text-gray-400 text-sm mt-2">Full transformation in 30 days — confidence, stamina, and power</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE / AFTER RESULTS -->
+    <section class="bg-dark-800/50">
+        <div class="max-w-4xl mx-auto px-4 py-16 md:py-20">
+            <div class="text-center mb-12">
+                <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">Real Results</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">Before & After <span class="gradient-text">VitalGummies</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-3">😴➡️😈</div>
+                    <div class="text-sm text-gray-500 mb-1">Stamina Duration</div>
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="text-red-400 line-through font-bold">2 mins</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-brand-400"></i>
+                        <span class="text-green-400 font-bold text-xl">30+ mins</span>
+                    </div>
+                </div>
+                <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-3">📉➡️📈</div>
+                    <div class="text-sm text-gray-500 mb-1">Sex Drive Level</div>
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="text-red-400 line-through font-bold">Low</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-brand-400"></i>
+                        <span class="text-green-400 font-bold text-xl">Beast Mode</span>
+                    </div>
+                </div>
+                <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-3">😟➡️😎</div>
+                    <div class="text-sm text-gray-500 mb-1">Confidence</div>
+                    <div class="flex items-center justify-center gap-3">
+                        <span class="text-red-400 line-through font-bold">Anxious</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-brand-400"></i>
+                        <span class="text-green-400 font-bold text-xl">King</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="reviews" class="bg-dark-900">
+        <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
+            <div class="text-center mb-14">
+                <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">Social Proof</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">What Our Customers <span class="gradient-text">Are Saying</span></h2>
+                <p class="text-gray-400 mt-3">Real reviews from verified buyers — no cap! 🙅‍♂️</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/30 transition">
+                    <div class="star-rating text-sm mb-3">★★★★★</div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"My wife thought I was taking something dangerous 😂. Bro, these gummies changed my life! I went from 2 minutes to lasting over 30 minutes. She's now the one saying she's tired! 🔥"</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-800">
+                        <img src="http://static.photos/people/200x200/5" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-sm">Chinedu O.</p>
+                            <p class="text-gray-500 text-xs">Lagos — Verified Buyer ✅</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/30 transition">
+                    <div class="star-rating text-sm mb-3">★★★★★</div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"I was skeptical at first, but after one week, I noticed my morning erections coming back stronger. Now after a full month, I feel like I'm 25 again! Best purchase I've ever made 💪"</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-800">
+                        <img src="http://static.photos/people/200x200/6" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-sm">Adebayo M.</p>
+                            <p class="text-gray-500 text-xs">Abuja — Verified Buyer ✅</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/30 transition">
+                    <div class="star-rating text-sm mb-3">★★★★★</div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"They taste great and they actually WORK. No side effects, no headache. My confidence is through the roof now. I ordered the 3-pack and I'm about to order 5 more! 🙌"</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-800">
+                        <img src="http://static.photos/people/200x200/7" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-sm">Emeka K.</p>
+                            <p class="text-gray-500 text-xs">Port Harcourt — Verified Buyer ✅</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/30 transition">
+                    <div class="star-rating text-sm mb-3">★★★★★</div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"I'm 47 and thought my active days were over. These gummies proved me wrong! My girlfriend is 32 and she can't keep up with me now 😏. Thank you VitalGummies!"</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-800">
+                        <img src="http://static.photos/people/200x200/8" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-sm">Olusegun A.</p>
+                            <p class="text-gray-500 text-xs">Ibadan — Verified Buyer ✅</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/30 transition">
+                    <div class="star-rating text-sm mb-3">★★★★★</div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Delivery was fast — got mine in 2 days. Started taking them immediately. By day 5, I already felt the difference. By week 2, I was going 3 rounds like it's nothing 🙆‍♂️🔥"</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-800">
+                        <img src="http://static.photos/people/200x200/9" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-sm">Ibrahim S.</p>
+                            <p class="text-gray-500 text-xs">Kano — Verified Buyer ✅</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/30 transition">
+                    <div class="star-rating text-sm mb-3">★★★★★</div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"My marriage was falling apart because I couldn't satisfy my wife. A friend recommended this and it's been a game-changer. She looks at me differently now ❤️"</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-800">
+                        <img src="http://static.photos/people/200x200/10" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="font-semibold text-sm">Uche N.</p>
+                            <p class="text-gray-500 text-xs">Enugu — Verified Buyer ✅</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUARANTEE -->
+    <section class="bg-gradient-to-r from-brand-900/50 via-dark-900 to-brand-900/50">
+        <div class="max-w-3xl mx-auto px-4 py-16 md:py-20 text-center">
+            <div class="w-24 h-24 bg-gold-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="shield-check" class="w-12 h-12 text-gold-400"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">30-Day <span class="text-gold-400">Money-Back</span> Guarantee</h2>
+            <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                We're so confident in VitalGummies Pro that we offer a <strong class="text-white">full 30-day money-back guarantee</strong>. If you don't see noticeable results within 30 days, simply contact us and we'll refund every kobo — no questions asked!
+            </p>
+            <p class="text-gold-400 font-bold text-lg">You either get RESULTS, or you get your money back. Period. 💯</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-dark-900">
+        <div class="max-w-3xl mx-auto px-4 py-16 md:py-20">
+            <div class="text-center mb-12">
+                <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">Got Questions?</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            </div>
+            <div class="space-y-3" id="faqContainer">
+                <div class="faq-item bg-dark-800/80 border border-gray-800 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-dark-800 transition">
+                        <span class="font-semibold pr-4">How fast will I see results?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-400 flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5 hidden">
+                        <p class="text-gray-400 text-sm leading-relaxed">Most men start noticing results within 5-7 days. For optimal results, we recommend consistent daily use for at least 30 days. The longer you take it, the better the results.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-dark-800/80 border border-gray-800 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-dark-800 transition">
+                        <span class="font-semibold pr-4">Are there any side effects?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-400 flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5 hidden">
+                        <p class="text-gray-400 text-sm leading-relaxed">VitalGummies Pro is made from 100% natural ingredients and is NAFDAC approved. There are NO known side effects. However, if you have any underlying health conditions, please consult your doctor first.</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-dark-800/80 border border-gray-800 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-dark-800 transition">
+                        <span class="font-semibold pr-4">How do I take it?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-400 flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5 hidden">
+                        <p class="text-gray-400 text-sm leading-relaxed">Simply take 2 gummies daily. You can take them at any time of the day, but we recommend taking them 30 minutes before intimacy for maximum effect. They taste great — like a treat!</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-dark-800/80 border border-gray-800 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-dark-800 transition">
+                        <span class="font-semibold pr-4">How long does delivery take?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-400 flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5 hidden">
+                        <p class="text-gray-400 text-sm leading-relaxed">We deliver nationwide! Lagos: 1-2 days. Other major cities: 2-4 days. Remote areas: 3-5 days. Delivery is 100% FREE on all orders!</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-dark-800/80 border border-gray-800 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-dark-800 transition">
+                        <span class="font-semibold pr-4">What if it doesn't work for me?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-400 flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5 hidden">
+                        <p class="text-gray-400 text-sm leading-relaxed">We offer a 30-day money-back guarantee. If you're not satisfied for ANY reason, just contact us and we'll refund your full amount. No questions asked. You have nothing to lose!</p>
+                    </div>
+                </div>
+                <div class="faq-item bg-dark-800/80 border border-gray-800 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-dark-800 transition">
+                        <span class="font-semibold pr-4">Can I pay on delivery?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-400 flex-shrink-0 faq-icon transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-5 hidden">
+                        <p class="text-gray-400 text-sm leading-relaxed">Yes! We offer Pay on Delivery nationwide. You only pay when you receive your package. No risk, no stress. Just place your order and we handle the rest!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER SECTION -->
+    <section id="order-section" class="bg-gradient-to-b from-dark-800 via-brand-900/20 to-dark-900 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-mesh opacity-50"></div>
+        <div class="max-w-4xl mx-auto px-4 py-16 md:py-20 relative z-10">
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/30 px-4 py-2 rounded-full mb-4 badge-bounce">
+                    <i data-lucide="flame" class="w-4 h-4 text-red-400"></i>
+                    <span class="text-red-300 text-sm font-bold">⚠️ 50% DISCOUNT ENDS SOON!</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-display font-bold mb-4">Order Now & <span class="gradient-text">Save 50%</span></h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Don't let this opportunity pass. Join 4,800+ men who have already transformed their performance. Place your order now!</p>
+            </div>
+
+            <!-- Quick Order Cards -->
+            <div class="grid sm:grid-cols-3 gap-4 md:gap-6 mb-8">
+                <button onclick="openOrderModal('Starter Pack', '₦15,000')" class="bg-dark-900/80 border border-gray-700 hover:border-brand-500 rounded-2xl p-6 text-center transition group">
+                    <div class="text-sm text-gray-500 mb-1">Starter</div>
+                    <div class="text-2xl font-black text-white group-hover:text-brand-400 transition">₦15,000</div>
+                    <div class="text-xs text-gray-500 line-through">₦30,000</div>
+                    <div class="text-xs text-red-400 font-bold mt-2">1 Pack</div>
+                </button>
+                <button onclick="openOrderModal('Power Pack', '₦35,000')" class="bg-dark-900/80 border-2 border-brand-500 hover:border-brand-400 rounded-2xl p-6 text-center transition group relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full">BEST VALUE 🔥</div>
+                    <div class="text-sm text-gray-500 mb-1 mt-2">Power</div>
+                    <div class="text-2xl font-black text-brand-400">₦35,000</div>
+                    <div class="text-xs text-gray-500 line-through">₦78,000</div>
+                    <div class="text-xs text-brand-300 font-bold mt-2">3 Packs</div>
+                </button>
+                <button onclick="openOrderModal('Ultimate Pack', '₦50,000')" class="bg-dark-900/80 border border-gray-700 hover:border-brand-500 rounded-2xl p-6 text-center transition group">
+                    <div class="text-sm text-gray-500 mb-1">Ultimate</div>
+                    <div class="text-2xl font-black text-white group-hover:text-brand-400 transition">₦50,000</div>
+                    <div class="text-xs text-gray-500 line-through">₦125,000</div>
+                    <div class="text-xs text-gold-400 font-bold mt-2">5 Packs — Save Most!</div>
+                </button>
+            </div>
+
+            <!-- Trust elements -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+                <div class="flex items-center gap-2 bg-dark-900/50 border border-gray-800 rounded-xl p-3 text-center justify-center">
+                    <i data-lucide="truck" class="w-5 h-5 text-green-400 flex-shrink-0"></i>
+                    <span class="text-xs text-gray-300">Free Delivery</span>
+                </div>
+                <div class="flex items-center gap-2 bg-dark-900/50 border border-gray-800 rounded-xl p-3 text-center justify-center">
+                    <i data-lucide="banknote" class="w-5 h-5 text-gold-400 flex-shrink-0"></i>
+                    <span class="text-xs text-gray-300">Pay on Delivery</span>
+                </div>
+                <div class="flex items-center gap-2 bg-dark-900/50 border border-gray-800 rounded-xl p-3 text-center justify-center">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-blue-400 flex-shrink-0"></i>
+                    <span class="text-xs text-gray-300">NAFDAC Approved</span>
+                </div>
+                <div class="flex items-center gap-2 bg-dark-900/50 border border-gray-800 rounded-xl p-3 text-center justify-center">
+                    <i data-lucide="refresh-ccw" class="w-5 h-5 text-brand-400 flex-shrink-0"></i>
+                    <span class="text-xs text-gray-300">30-Day Guarantee</span>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button onclick="openOrderModal('Power Pack', '₦35,000')" class="shimmer-btn text-white font-bold px-10 py-5 rounded-xl text-xl hover:scale-105 transition-transform inline-flex items-center justify-center gap-3 pulse-glow">
+                    <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                    Order Now — 50% OFF
+                </button>
+                <p class="text-gray-500 text-sm mt-4">🔒 Secure order · Pay on delivery · Free shipping nationwide</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark-900 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-purple-700 rounded-xl flex items-center justify-center">
+                            <i data-lucide="zap" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">Vital<span class="text-brand-400">Gummies</span></span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Nigeria's #1 natural male performance gummy. Trusted by thousands of men across the country.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#products" class="hover:text-brand-400 transition">Products</a></li>
+                        <li><a href="#benefits" class="hover:text-brand-400 transition">Benefits</a></li>
+                        <li><a href="#reviews" class="hover:text-brand-400 transition">Reviews</a></li>
+                        <li><a href="#faq" class="hover:text-brand-400 transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-400"></i>
+                            <a href="tel:+2348000000000" class="hover:text-brand-400 transition">+234 800 000 0000</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-brand-400"></i>
+                            <a href="mailto:support@vitalgummies.ng" class="hover:text-brand-400 transition">support@vitalgummies.ng</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-green-400"></i>
+                            <a href="https://wa.me/2348000000000?text=Hi%2C%20I%27m%20interested%20in%20VitalGummies" target="_blank" class="hover:text-green-400 transition">WhatsApp Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2024 VitalGummies Pro. All rights reserved.</p>
+                <div class="flex items-center gap-4 text-gray-500 text-sm">
+                    <a href="#" class="hover:text-brand-400 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand-400 transition">Terms of Service</a>
+                    <a href="#" class="hover:text-brand-400 transition">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY BOTTOM CTA -->
+    <div id="stickyCta" class="sticky-cta bg-dark-800/95 backdrop-blur-lg border-t border-gray-800 px-4 py-3">
+        <div class="max-w-lg mx-auto flex items-center justify-between gap-3">
+            <div class="hidden sm:block">
+                <p class="font-bold text-sm">VitalGummies Pro</p>
+                <p class="text-brand-400 text-xs font-bold">₦35,000 <span class="text-gray-500 line-through text-xs">₦78,000</span></p>
+            </div>
+            <a href="#order-section" class="flex-1 sm:flex-none shimmer-btn text-white font-bold py-3 px-6 rounded-xl text-sm text-center flex items-center justify-center gap-2">
+                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                Order Now — 50% OFF
+            </a>
+        </div>
+    </div>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/2348000000000?text=Hi%2C%20I%27m%20interested%20in%20VitalGummies%20Pro" target="_blank" class="whatsapp-float">
+        <div class="bg-green-500 hover:bg-green-400 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+        </div>
+        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">1</span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // ===== PRODUCT DATA =====
+        const products = {
+            starter: {
+                name: 'Starter Pack',
+                price: '₦15,000',
+                oldPrice: '₦30,000',
+                image: 'http://static.photos/wellness/640x360/11',
+                description: 'Perfect for first-timers who want to experience the VitalGummies difference.',
+                details: [
+                    '1 Pack — 30 Gummies (15-day supply)',
+                    'Boosts stamina & endurance',
+                    'Enhances erection quality',
+                    'Increases libido naturally',
+                    'Results visible in 5-7 days',
+                    '100% natural ingredients',
+                    'NAFDAC approved',
+                    'Free delivery nationwide'
+                ]
+            },
+            power: {
+                name: 'Power Pack',
+                price: '₦35,000',
+                oldPrice: '₦78,000',
+                image: 'http://static.photos/wellness/640x360/12',
+                description: 'Our most popular option! 93% of customers choose this for maximum results.',
+                details: [
+                    '3 Packs — 90 Gummies (45-day supply)',
+                    'Full performance transformation',
+                    'Last 3x longer guaranteed',
+                    'Rock-hard erections on demand',
+                    'Explosive libido boost',
+                    'Unstoppable stamina & energy',
+                    'Save ₦43,000 compared to buying 1-pack',
+                    'Free delivery + Pay on delivery',
+                    '30-day money-back guarantee'
+                ]
+            },
+            ultimate: {
+                name: 'Ultimate Pack',
+                price: '₦50,000',
+                oldPrice: '₦125,000',
+                image: 'http://static.photos/wellness/640x360/13',
+                description: 'Maximum supply for maximum results! Save the most with this complete transformation pack.',
+                details: [
+                    '5 Packs — 150 Gummies (75-day supply)',
+                    'Complete bedroom transformation',
+                    'Permanent results with consistent use',
+                    'Become unstoppable in bed',
+                    'Maximum savings — ₦75,000 off!',
+                    'Priority delivery (1-2 days nationwide)',
+                    'Free delivery + Pay on delivery',
+                    '30-day money-back guarantee',
+                    'VIP customer support'
+                ]
+            }
+        };
+
+        // ===== COUNTDOWN TIMER =====
+        let totalSeconds = 2 * 3600 + 47 * 60 + 33;
+        function updateCountdown() {
+            if (totalSeconds <= 0) {
+                totalSeconds = 2 * 3600 + 47 * 60 + 33; // Reset
+            }
+            const h = Math.floor(totalSeconds / 3600);
+            const m = Math.floor((totalSeconds % 3600) / 60);
+            const s = totalSeconds % 60;
+            document.getElementById('hours').textContent = String(h).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+            const topStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            document.getElementById('topCountdown').textContent = topStr;
+            document.querySelectorAll('.topCountdownClone').forEach(el => el.textContent = topStr);
+            totalSeconds--;
+        }
+        setInterval(updateCountdown, 1000);
+
+        // ===== VIEWER COUNT =====
+        function updateViewerCount() {
+            const el = document.getElementById('viewerCount');
+            let count = parseInt(el.textContent);
+            count += Math.floor(Math.random() * 3) - 1;
+            count = Math.max(30, Math.min(80, count));
+            el.textContent = count;
+        }
+        setInterval(updateViewerCount, 5000);
+
+        // ===== STICKY CTA =====
+        const stickyCta = document.getElementById('stickyCta');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+        });
+
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
+
+        // ===== ORDER MODAL =====
+        let currentProduct = '';
+        let currentPrice = '';
+
+        function openOrderModal(productName, price) {
+            currentProduct = productName;
+            currentPrice = price;
+            
+            const product = Object.values(products).find(p => p.name === productName);
+            document.getElementById('summaryName').textContent = productName;
+            document.getElementById('summaryPrice').textContent = price;
+            document.getElementById('summaryImg').src = product ? product.image : '';
+            
+            document.getElementById('orderModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeModal(e) {
+            if (e.target === document.getElementById('orderModal')) {
+                closeModalDirect();
+            }
+        }
+
+        function closeModalDirect() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ===== HANDLE ORDER — WhatsApp Integration =====
+        function handleOrder(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phoneNumber').value.trim();
+            const address = document.getElementById('deliveryAddress').value.trim();
+            const quantity = document.getElementById('quantity').value;
+
+            if (!name || !phone || !address) {
+                showToast('Please fill in all required fields!', 'error');
+                return;
+            }
+
+            // WhatsApp message
+            const message = `🛒 *NEW ORDER — VitalGummies Pro*%0A%0A` +
+                `📦 *Product:* ${currentProduct}%0A` +
+                `💰 *Price:* ${currentPrice}%0A` +
+                `🔢 *Quantity:* ${quantity} pack(s)%0A%0A` +
+                `👤 *Full Name:* ${name}%0A` +
+                `📱 *Phone:* ${phone}%0A` +
+                `📍 *Delivery Address:* ${address}%0A%0A` +
+                `✅ I'd like to place this order. Please confirm availability and delivery timeline.%0A%0A` +
+                `Thank you! 🙏`;
+
+            const whatsappUrl = `https://wa.me/2348000000000?text=${message}`;
+            
+            // Show toast
+            showToast('Redirecting to WhatsApp... 🎉', 'success');
+            
+            // Open WhatsApp
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 1000);
+
+            // Close modal after delay
+            setTimeout(() => {
+                closeModalDirect();
+                document.getElementById('orderForm').reset();
+            }, 1500);
+        }
+
+        // ===== PRODUCT DETAIL MODAL =====
+        function showDetail(productId) {
+            const product = products[productId];
+            if (!product) return;
+
+            const html = `
+                <div class="relative">
+                    <img src="${product.image}" alt="${product.name}" class="w-full aspect-video object-cover rounded-t-3xl">
+                    <div class="absolute bottom-4 left-4 bg-dark-900/80 backdrop-blur-sm px-4 py-2 rounded-xl">
+                        <span class="text-brand-400 font-bold text-xl">${product.price}</span>
+                        <span class="text-gray-500 line-through text-sm ml-2">${product.oldPrice}</span>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <h3 class="text-2xl font-bold mb-2">${product.name}</h3>
+                    <p class="text-gray-400 mb-6">${product.description}</p>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-brand-400 mb-3">What's Included:</h4>
+                    <ul class="space-y-3 mb-8">
+                        ${product.details.map(d => `
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0"></i>
+                                <span class="text-gray-300 text-sm">${d}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <button onclick="closeDetailModalDirect(); openOrderModal('${product.name}', '${product.price}')" class="w-full shimmer-btn text-white font-bold py-4 rounded-xl text-lg hover:scale-[1.02] transition-transform flex items-center justify-center gap-2">
+                        <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                        Order Now — ${product.price}
+                    </button>
+                    <div class="mt-4 flex items-center justify-center gap-4 text-xs text-gray-500">
+                        <span class="flex items-center gap-1"><i data-lucide="truck" class="w-3 h-3"></i> Free Delivery</span>
+                        <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3 h-3"></i> 30-Day Guarantee</span>
+                        <span class="flex items-center gap-1"><i data-lucide="banknote" class="w-3 h-3"></i> Pay on Delivery</span>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('detailContent').innerHTML = html;
+            document.getElementById('detailModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeDetailModal(e) {
+            if (e.target === document.getElementById('detailModal')) {
+                closeDetailModalDirect();
+            }
+        }
+
+        function closeDetailModalDirect() {
+            document.getElementById('detailModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ===== TOAST =====
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            const container = toast.querySelector('div');
+            
+            toastMessage.textContent = message;
+            container.className = type === 'error' 
+                ? 'bg-red-500 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3'
+                : 'bg-green-500 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3';
+            
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // ===== FAQ =====
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('.faq-icon');
+            const isOpen = !content.classList.contains('hidden');
+            
+            // Close all
+            document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = '');
+            
+            if (!isOpen) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // ===== RECENT ORDER NOTIFICATION =====
+        const orderNames = [
+            'Adebayo from Lagos just ordered',
+            'Chinedu from Abuja just ordered', 
+            'Ibrahim from Kano just ordered',
+            'Emeka from Port Harcourt just ordered',
+            'Uche from Enugu just ordered',
+            'Olusegun from Ibadan just ordered',
+            'Tunde from Benin just ordered',
+            'Kayode from Akure just ordered',
+            'Obinna from Awka just ordered',
+            'Musa from Kaduna just ordered'
+        ];
+
+        function showRecentOrder() {
+            const name = orderNames[Math.floor(Math.random() * orderNames.length)];
+            showToast(`🔥 ${name} — Power Pack!`, 'success');
+        }
+
+        // Show recent order every 15-30 seconds
+        setInterval(showRecentOrder, 20000);
+        setTimeout(showRecentOrder, 8000);
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-up');
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.product-card-hover, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModalDirect();
+                closeDetailModalDirect();
+            }
+        });
+    </script>
+<script src="https://deepsite.hf.co/deepsite-badge.js"></script>
+</body>
+</html><h1>👋 Hello World!</h1>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
