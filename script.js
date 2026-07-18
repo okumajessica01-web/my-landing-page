@@ -228,3 +228,9 @@ window.addEventListener('DOMContentLoaded', () => {
     syncBasketUIState();
     if (window.lucide) { lucide.createIcons(); }
 });
+// Quick compatibility bridge to handle navbar button rendering
+function syncAuthHeaderView() {
+    if (typeof refreshAuthHeader === "function") {
+        refreshAuthHeader();
+    }
+}
