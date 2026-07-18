@@ -1635,28 +1635,9 @@
  dynamicUserBasket.splice(index, 1);
         refreshBasketUIData();
       }
+    <!-- CONNECTION BRIDGE LINK TO SCRIPT.JS -->
+    <script src="script.js"></script>
 
-      // E. Smart Order Dispatch Controller
-      function completeMultiProductCheckout() {
-        if (dynamicUserBasket.length === 0) { alert('Your shopping cart is currently empty!'); return; }
-        
-        let stringManifest = `Hello Primehealthcare! My name is ${storeUserDB.getUserName()}.\nI want to place an order for these catalog items:\n\n`;
-        let costSum = 0;
-        
-        dynamicUserBasket.forEach((item, index) => {
-          stringManifest += `${index + 1}. ${item.name} — ₦${item.price.toLocaleString()}\n`;
-          costSum += item.price;
-        });
-        
-        stringManifest += `\nTotal Order Value: ₦${costSum.toLocaleString()}\nPlease send over my OPay payment details!`;
-        const waUrl = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(stringManifest)}`;
-        window.open(waUrl, '_blank');
-      }
-
-      window.addEventListener('DOMContentLoaded', () => {
-        syncAuthHeaderView();
-      });
- </script>
 
 </body>
 </html>
