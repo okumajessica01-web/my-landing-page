@@ -198,38 +198,6 @@
             <span id="toast-message">Order placed successfully!</span>
         </div>
     </div>
-    <!-- MAIN NAVIGATION BAR WITH ACTIVE BUTTON -->
-    <nav class="sticky top-0 bg-dark-900/80 backdrop-blur-md border-b border-gray-800 z-50 px-4 md:px-8 py-4 flex justify-between items-center shadow-md">
-        <a href="#" class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-purple-700 rounded-xl flex items-center justify-center">
-                <i data-lucide="zap" class="w-5 h-5 text-white"></i>
-            </div>
-            <span class="text-xl font-bold">Prime<span class="text-brand-400">Healthcare</span></span>
-        </a>
-
-        <!-- Links to sections -->
-        <div class="hidden md:flex items-center gap-6 text-sm text-gray-300">
-            <a href="#products" class="hover:text-brand-400 transition">Products</a>
-            <a href="#benefits" class="hover:text-brand-400 transition">Benefits</a>
-            <a href="#reviews" class="hover:text-brand-400 transition">Reviews</a>
-            <a href="#faq" class="hover:text-brand-400 transition">FAQ</a>
-        </div>
-
-        <!-- Basket & Account Activation Button -->
-        <div class="flex items-center gap-3">
-            <button onclick="toggleCartDrawer(true)" class="relative p-2 text-gray-300 hover:text-white transition" aria-label="Open Basket">
-                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand-500 text-white rounded-full text-[10px] font-bold w-5 h-5 flex items-center justify-center">0</span>
-            </button>
-            
-            <!-- Visible, Operational Register Trigger Button -->
-            <div id="ecommerce-auth-panel" class="flex items-center">
-                <button onclick="toggleAuthModal(true)" class="bg-brand-600 hover:bg-brand-500 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold text-white shadow-md transition whitespace-nowrap">
-                    Register / Sign In
-                </button>
-            </div>
-        </div>
-    </nav>
 
     <!-- Order Modal -->
     <div id="orderModal" class="modal-overlay" onclick="closeModal(event)">
@@ -740,8 +708,77 @@
                     </div>
                 </div>
 
-             
-            
+                <!-- Template Slot 4 -->
+                <div class="product-card-hover bg-dark-900 border border-gray-800 rounded-3xl overflow-hidden relative group">
+                    <div class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">NEW</div>
+                    <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800">
+                        <img src="product6.jpeg" alt="Vitality Drops" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <div class="star-rating text-sm mb-2">★★★★★ <span class="text-gray-500 text-xs">(156)</span></div>
+                        <h3 class="font-bold text-lg">Vitality Drops</h3>
+                        <p class="text-gray-400 text-sm mt-1">Liquid formula for rapid absorption</p>
+                        <p class="text-gray-500 text-sm mt-2">Extra strength daily booster</p>
+                        <div class="mt-4 flex items-end gap-2">
+                            <span class="text-3xl font-black text-brand-400">₦18,000</span>
+                            <span class="text-gray-500 line-through text-sm">₦28,000</span>
+                        </div>
+                        <button onclick="askEnquiry('Vitality Drops')" class="w-full mt-3 border border-gray-600 hover:border-brand-500 text-gray-300 hover:text-white font-semibold py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Ask Enquiry
+                        </button>
+                        <button onclick="registerItemToCart('Vitality Drops', 18000)" class="w-full mt-2 bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+ <i data-lucide="shopping-cart" class="w-4 h-4"></i> Add to Basket / Order Now
+                        </button>
+                    </div>
+                </div>
+
+ <!-- Template Slot 5 -->
+                <div class="product-card-hover bg-dark-900 border-2 border-brand-500 rounded-3xl overflow-hidden relative group ring-2 ring-brand-500/30">
+                    <div class="absolute top-4 left-4 bg-gold-500 text-dark-900 text-xs font-bold px-3 py-1 rounded-full z-10">HOT</div>
+                    <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800">
+                        <img src="product3.jpeg" alt="Performance Plus Bundle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <div class="star-rating text-sm mb-2">★★★★★ <span class="text-gray-500 text-xs">(310)</span></div>
+                        <h3 class="font-bold text-lg">Performance Plus Bundle</h3>
+                        <p class="text-gray-400 text-sm mt-1">Gummies + Drops Combo</p>
+                        <p class="text-gray-500 text-sm mt-2">Complete 60-day transformation kit</p>
+                        <div class="mt-4 flex items-end gap-2">
+                            <span class="text-3xl font-black text-brand-400">₦42,000</span>
+                            <span class="text-gray-500 line-through text-sm">₦65,000</span>
+                        </div>
+                        <button onclick="askEnquiry('Performance Plus Bundle')" class="w-full mt-3 border border-gray-600 hover:border-brand-500 text-gray-300 hover:text-white font-semibold py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Ask Enquiry
+                        </button>
+                        <button onclick="registerItemToCart('Performance Plus Bundle', 42000)" class="w-full mt-2 shimmer-btn text-white font-bold py-3 rounded-xl hover:scale-[1.02] transition-transform flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Add to Basket / Order Now
+                        </button>
+                    </div>
+                </div>
+
+ <!-- Template Slot 6 -->
+                <div class="product-card-hover bg-dark-900 border border-gray-800 rounded-3xl overflow-hidden relative group">
+                    <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">BEST VALUE</div>
+                    <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800">
+                        <img src="product8.jpeg" alt="Monthly Subscription" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-5">
+                        <div class="star-rating text-sm mb-2">★★★★★ <span class="text-gray-500 text-xs">(88)</span></div>
+                        <h3 class="font-bold text-lg">Monthly Subscription</h3>
+                        <p class="text-gray-400 text-sm mt-1">Auto-delivered every 30 days</p>
+                        <p class="text-gray-500 text-sm mt-2">Cancel anytime, priority support</p>
+                        <div class="mt-4 flex items-end gap-2">
+                            <span class="text-3xl font-black text-brand-400">₦22,000</span>
+                            <span class="text-gray-500 line-through text-sm">₦35,000</span>
+                        </div>
+                        <button onclick="askEnquiry('Monthly Subscription')" class="w-full mt-3 border border-gray-600 hover:border-brand-500 text-gray-300 hover:text-white font-semibold py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-2">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Ask Enquiry </button>
+                        <button onclick="registerItemToCart('Monthly Subscription', 22000)" class="w-full mt-2 bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Add to Basket / Order Now
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1598,9 +1635,28 @@
  dynamicUserBasket.splice(index, 1);
         refreshBasketUIData();
       }
-    <!-- CONNECTION BRIDGE LINK TO SCRIPT.JS -->
-    <script src="script.js"></script>
 
+      // E. Smart Order Dispatch Controller
+      function completeMultiProductCheckout() {
+        if (dynamicUserBasket.length === 0) { alert('Your shopping cart is currently empty!'); return; }
+        
+        let stringManifest = `Hello Primehealthcare! My name is ${storeUserDB.getUserName()}.\nI want to place an order for these catalog items:\n\n`;
+        let costSum = 0;
+        
+        dynamicUserBasket.forEach((item, index) => {
+          stringManifest += `${index + 1}. ${item.name} — ₦${item.price.toLocaleString()}\n`;
+          costSum += item.price;
+        });
+        
+        stringManifest += `\nTotal Order Value: ₦${costSum.toLocaleString()}\nPlease send over my OPay payment details!`;
+        const waUrl = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(stringManifest)}`;
+        window.open(waUrl, '_blank');
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        syncAuthHeaderView();
+      });
+ </script>
 
 </body>
 </html>
