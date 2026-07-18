@@ -136,7 +136,7 @@
         .toast-notification.show { transform: translateX(0); }
 
         .modal-overlay {
- position: fixed;
+            position: fixed;
             inset: 0;
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(8px);
@@ -282,6 +282,82 @@
         </div>
     </div>
 
+    <!-- AUTHENTICATION MODAL — Dual-Tab Sign In / Register -->
+    <div id="authModal" class="modal-overlay" onclick="closeAuthModal(event)">
+        <div class="modal-content max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto bg-dark-800 rounded-3xl border border-brand-700/30 p-6 md:p-8 relative">
+            <button onclick="closeAuthModalDirect()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center gap-2 bg-brand-500/20 px-4 py-2 rounded-full mb-3">
+                    <i data-lucide="user" class="w-4 h-4 text-brand-400"></i>
+                    <span class="text-brand-300 text-sm font-semibold">SECURE ACCESS</span>
+                </div>
+                <h3 id="authModalTitle" class="text-2xl font-bold">Welcome</h3>
+                <p class="text-gray-400 text-sm mt-1">Sign in to your account or create a new one.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex bg-dark-900 rounded-xl p-1 border border-gray-700/50 mb-6">
+                <button type="button" onclick="switchAuthTab('signin')" id="tab-signin" class="flex-1 py-2.5 rounded-lg text-sm font-semibold transition bg-transparent text-gray-400 hover:text-white">Sign In</button>
+                <button type="button" onclick="switchAuthTab('register')" id="tab-register" class="flex-1 py-2.5 rounded-lg text-sm font-semibold transition bg-transparent text-gray-400 hover:text-white">Register</button>
+            </div>
+
+            <form id="authForm" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+                <!-- Register-only fields -->
+                <div id="auth-register-fields" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1.5">First Name <span class="text-red-400 auth-req">*</span></label>
+                        <div class="relative">
+                            <i data-lucide="user" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                            <input type="text" name="firstName" id="authFirstName" placeholder="Enter your first name" 
+                                class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1.5">Last Name <span class="text-red-400 auth-req">*</span></label>
+                        <div class="relative">
+                            <i data-lucide="user" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                            <input type="text" name="lastName" id="authLastName" placeholder="Enter your last name" 
+                                class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-1.5">Phone Number <span class="text-red-400 auth-req">*</span></label>
+                        <div class="relative">
+                            <i data-lucide="phone" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                            <input type="tel" name="phone" id="authPhone" placeholder="Enter your phone number" 
+                                class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Email Address <span class="text-red-400">*</span></label>
+                    <div class="relative">
+                        <i data-lucide="mail" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                        <input type="email" name="email" id="authEmail" required placeholder="Enter your email address" 
+                            class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Password <span class="text-red-400">*</span></label>
+                    <div class="relative">
+                        <i data-lucide="lock" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                        <input type="password" name="password" id="authPassword" minlength="8" required placeholder="Enter your password" 
+                            class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                    </div>
+                </div>
+
+                <button type="submit" id="authSubmitBtn" class="w-full shimmer-btn text-white font-bold py-4 rounded-xl text-lg hover:scale-[1.02] transition-transform flex items-center justify-center gap-2">
+                    <i data-lucide="log-in" class="w-5 h-5"></i>
+                    <span id="authSubmitText">Sign In</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Urgency Top Bar -->
     <div class="bg-gradient-to-r from-brand-700 via-brand-600 to-purple-700 py-2.5 text-center relative overflow-hidden">
         <div class="marquee-container">
@@ -329,7 +405,7 @@
                     <span id="cart-badge" class="hidden absolute -top-1 -right-1 bg-brand-500 text-white text-[10px] font-bold w-5 h-5 rounded-full items-center justify-center">0</span>
                 </button>
                 <div id="ecommerce-auth-panel" style="margin-left: 15px;"></div>
-                <a href="#order-section" class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 px-5 py-2.5 rounded-xl text-sm font-semibold transition">
+                <a href="#order-section" class="order-now-trigger hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 px-5 py-2.5 rounded-xl text-sm font-semibold transition">
                     <i data-lucide="shopping-cart" class="w-4 h-4"></i>
                     Order Now
                 </a>
@@ -340,11 +416,11 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="md:hidden hidden bg-dark-900 border-t border-gray-800 px-4 py-4 space-y-3">
- <a href="#products" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-brand-400 transition">Products</a>
+            <a href="#products" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-brand-400 transition">Products</a>
             <a href="#benefits" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-brand-400 transition">Benefits</a>
             <a href="#reviews" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-brand-400 transition">Reviews</a>
             <a href="#faq" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-brand-400 transition">FAQ</a>
-            <a href="#order-section" onclick="closeMobileMenu()" class="block bg-brand-600 text-center py-3 rounded-xl font-semibold">Order Now</a>
+            <a href="#order-section" onclick="closeMobileMenu()" class="order-now-trigger block bg-brand-600 text-center py-3 rounded-xl font-semibold">Order Now</a>
         </div>
     </nav>
 
@@ -388,7 +464,7 @@
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                        <a href="#order-section" class="shimmer-btn text-white font-bold px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform inline-flex items-center justify-center gap-2 pulse-glow">
+                        <a href="#order-section" class="order-now-trigger shimmer-btn text-white font-bold px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform inline-flex items-center justify-center gap-2 pulse-glow">
                             <i data-lucide="shopping-cart" class="w-5 h-5"></i>
                             Order Now — 50% OFF
                         </a>
@@ -511,7 +587,7 @@
                 </div>
             </div>
             <div class="text-center mt-10">
- <p class="text-xl md:text-2xl font-bold text-brand-400">If ANY of this sounds like you... <br>You're NOT alone, and there IS a solution! 👇</p>
+                <p class="text-xl md:text-2xl font-bold text-brand-400">If ANY of this sounds like you... <br>You're NOT alone, and there IS a solution! 👇</p>
             </div>
         </div>
     </section>
@@ -526,7 +602,7 @@
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
- <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
                         <i data-lucide="timer" class="w-7 h-7 text-brand-400"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-2">Last 3x Longer</h3>
@@ -600,7 +676,7 @@
                     <p class="text-gray-500 text-xs mt-1">Supports male vitality</p>
                 </div>
                 <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
- <div class="text-3xl mb-2">🌰</div>
+                    <div class="text-3xl mb-2">🌰</div>
                     <h4 class="font-bold text-sm">Tribulus</h4>
                     <p class="text-gray-500 text-xs mt-1">Elevates drive & performance</p>
                 </div>
@@ -633,7 +709,7 @@
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="productGrid">
 
- <!-- Card 1: Starter Pack (existing product + exact image) -->
+                <!-- Card 1: Starter Pack (existing product + exact image) -->
                 <div class="product-card-hover bg-dark-900 border border-gray-800 rounded-3xl overflow-hidden relative group">
                     <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">-50%</div>
                     <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800">
@@ -683,7 +759,7 @@
                     </div>
                 </div>
 
- <!-- Card 3: Ultimate Pack (existing product + exact image) -->
+                <!-- Card 3: Ultimate Pack (existing product + exact image) -->
                 <div class="product-card-hover bg-dark-900 border border-gray-800 rounded-3xl overflow-hidden relative group">
                     <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">-60%</div>
                     <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800">
@@ -727,12 +803,12 @@
                             <i data-lucide="message-circle" class="w-4 h-4"></i> Ask Enquiry
                         </button>
                         <button onclick="registerItemToCart('Vitality Drops', 18000)" class="w-full mt-2 bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
- <i data-lucide="shopping-cart" class="w-4 h-4"></i> Add to Basket / Order Now
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i> Add to Basket / Order Now
                         </button>
                     </div>
                 </div>
 
- <!-- Template Slot 5 -->
+                <!-- Template Slot 5 -->
                 <div class="product-card-hover bg-dark-900 border-2 border-brand-500 rounded-3xl overflow-hidden relative group ring-2 ring-brand-500/30">
                     <div class="absolute top-4 left-4 bg-gold-500 text-dark-900 text-xs font-bold px-3 py-1 rounded-full z-10">HOT</div>
                     <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800">
@@ -756,7 +832,7 @@
                     </div>
                 </div>
 
- <!-- Template Slot 6 -->
+                <!-- Template Slot 6 -->
                 <div class="product-card-hover bg-dark-900 border border-gray-800 rounded-3xl overflow-hidden relative group">
                     <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">BEST VALUE</div>
                     <div class="aspect-square overflow-hidden bg-gradient-to-br from-brand-900/30 to-dark-800">
@@ -772,7 +848,8 @@
                             <span class="text-gray-500 line-through text-sm">₦35,000</span>
                         </div>
                         <button onclick="askEnquiry('Monthly Subscription')" class="w-full mt-3 border border-gray-600 hover:border-brand-500 text-gray-300 hover:text-white font-semibold py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-2">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i> Ask Enquiry </button>
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Ask Enquiry
+                        </button>
                         <button onclick="registerItemToCart('Monthly Subscription', 22000)" class="w-full mt-2 bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
                             <i data-lucide="shopping-cart" class="w-4 h-4"></i> Add to Basket / Order Now
                         </button>
@@ -815,7 +892,7 @@
                     <div class="w-20 h-20 rounded-full bg-brand-500/20 flex items-center justify-center mx-auto mb-4 relative">
                         <span class="text-3xl font-black text-brand-400">3</span>
                         <div class="absolute -top-1 -right-1 w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center">
- <i data-lucide="crown" class="w-3 h-3 text-dark-900"></i>
+                            <i data-lucide="crown" class="w-3 h-3 text-dark-900"></i>
                         </div>
                     </div>
                     <h3 class="font-bold text-lg">Become a King in Bed</h3>
@@ -1074,7 +1151,7 @@
                     <span class="text-xs text-gray-300">FDA Approved</span>
                 </div>
                 <div class="flex items-center gap-2 bg-dark-900/50 border border-gray-800 rounded-xl p-3 text-center justify-center">
- <i data-lucide="refresh-ccw" class="w-5 h-5 text-brand-400 flex-shrink-0"></i>
+                    <i data-lucide="refresh-ccw" class="w-5 h-5 text-brand-400 flex-shrink-0"></i>
                     <span class="text-xs text-gray-300">30-Day Guarantee</span>
                 </div>
             </div>
@@ -1142,12 +1219,12 @@
 
     <!-- STICKY BOTTOM CTA -->
     <div id="stickyCta" class="sticky-cta bg-dark-800/95 backdrop-blur-lg border-t border-gray-800 px-4 py-3">
-        <div class="max-w-lg mx-auto flex items-center justify-between gap-3">
+ <div class="max-w-lg mx-auto flex items-center justify-between gap-3">
             <div class="hidden sm:block">
                 <p class="font-bold text-sm">Primehealthcare</p>
                 <p class="text-brand-400 text-xs font-bold">KSh5000 <span class="text-gray-500 line-through text-xs">KSh7000</span></p>
             </div>
-            <a href="#order-section" class="flex-1 sm:flex-none shimmer-btn text-white font-bold py-3 px-6 rounded-xl text-sm text-center flex items-center justify-center gap-2">
+            <a href="#order-section" class="order-now-trigger flex-1 sm:flex-none shimmer-btn text-white font-bold py-3 px-6 rounded-xl text-sm text-center flex items-center justify-center gap-2">
                 <i data-lucide="shopping-cart" class="w-4 h-4"></i>
                 Order Now — 50% OFF
             </a>
@@ -1323,7 +1400,8 @@
             document.body.style.overflow = '';
         }
 
-        // ===== HANDLE ORDER — WhatsApp Integration ===== function handleOrder(e) {
+        // ===== HANDLE ORDER — WhatsApp Integration =====
+        function handleOrder(e) {
             e.preventDefault();
             
             const name = document.getElementById('fullName').value.trim();
@@ -1503,160 +1581,252 @@
             if (e.key === 'Escape') {
                 closeModalDirect();
                 closeDetailModalDirect();
+                closeAuthModalDirect();
             }
         });
  </script>
 
-    <!-- ================= CORE RUNTIME ENGINE (REQUESTED BLOCK) ================= -->
- <script>
-      // A. Local Customer Account Storage Management
-      const storeUserDB = {
-        isLoggedIn: () => localStorage.getItem('store_customer_logged') === 'true',
-        getUserName: () => localStorage.getItem('store_customer_name') || 'Customer',
-        login: (name) => {
-          localStorage.setItem('store_customer_logged', 'true');
-          localStorage.setItem('store_customer_name', name);
-          window.location.reload();
-        },
-        logout: () => {
-          localStorage.clear();
-          window.location.reload();
-        }
-      };
+    <!-- ================= CORE RUNTIME ENGINE (AUTH + BASKET) ================= -->
+    <script>
+        // A. Local Customer Account Storage Management
+        const storeUserDB = {
+            isLoggedIn: () => localStorage.getItem('store_customer_logged') === 'true',
+            getUserName: () => localStorage.getItem('store_customer_name') || 'Customer',
+            getUserData: () => {
+ try { return JSON.parse(localStorage.getItem('store_customer_data') || '{}'); } catch (e) { return {}; }
+            },
+            login: (name, data = {}) => {
+                localStorage.setItem('store_customer_logged', 'true');
+                localStorage.setItem('store_customer_name', name);
+                if (Object.keys(data).length) {
+                    localStorage.setItem('store_customer_data', JSON.stringify(data));
+                }
+                window.location.reload();
+            },
+            logout: () => {
+                localStorage.removeItem('store_customer_logged');
+                localStorage.removeItem('store_customer_name');
+                localStorage.removeItem('store_customer_data');
+                window.location.reload();
+            }
+        };
 
-      // B. Render Navbar Account Interface State
-      function syncAuthHeaderView() {
-        const box = document.getElementById('ecommerce-auth-panel');
-        if (!box) return;
-        if (storeUserDB.isLoggedIn()) {
-          box.innerHTML = `
-            <div style="display:flex; align-items:center; gap:12px; font-family:sans-serif;">
-              <span style="font-weight:600; font-size:14px; color:#d946ef;">👋 Hi, ${storeUserDB.getUserName()}</span>
-              <button onclick="storeUserDB.logout()" style="background:#ef4444; color:white; padding:5px 12px; border-radius:6px; font-size:12px; border:none; cursor:pointer;">Logout</button>
-            </div>`;
-        } else {
-          box.innerHTML = `<button onclick="triggerRegisterModal()" style="background:#d946ef; color:white; padding:8px 16px; border-radius:8px; font-size:14px; font-weight:500; border:none; cursor:pointer;">Sign In / Register</button>`;
-        }
-      }
-
-      // C. Interactive Account Profile Modal Box
-      function triggerRegisterModal() {
-        const frame = document.createElement('div');
-        frame.id = 'store-register-modal';
-        frame.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; z-index:99999; font-family:sans-serif; backdrop-filter:blur(6px);";
-        frame.innerHTML = `
-          <div style="background:#1a1a2e; border:1px solid rgba(217,70,239,0.25); padding:25px; border-radius:16px; width:340px; box-shadow:0 20px 60px rgba(0,0,0,0.5); position:relative;">
-            <h3 style="margin-top:0; margin-bottom:10px; color:#fff; font-size:18px; font-weight:bold;">Create Shopping Profile</h3>
-            <p style="color:#9ca3af; font-size:13px; margin-bottom:20px;">Please register an account to place and track items in your checkout basket.</p>
-            <input type="text" id="cust-signup-name" placeholder="Enter Your Full Name" style="width:100%; padding:12px; border:1px solid #374151; background:#0f0f1a; color:#fff; border-radius:8px; margin-bottom:15px; box-sizing:border-box;">
-            <button onclick="submitStoreSignup()" style="width:100%; background:#d946ef; color:white; padding:12px; border-radius:8px; border:none; font-weight:bold; cursor:pointer;">Complete Registration</button>
-            <button onclick="document.getElementById('store-register-modal').remove()" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:18px; cursor:pointer; color:#6b7280;">✕</button>
-          </div>`;
-        document.body.appendChild(frame);
-      }
-
-      function submitStoreSignup() {
-        const targetName = document.getElementById('cust-signup-name').value.trim();
-        if (!targetName) { alert('Please type in your name to create an account!'); return; }
-        storeUserDB.login(targetName);
-      }
-
-      // D. Shopping Basket Aggregator Core
-      let dynamicUserBasket = [];
-      const STORE_WHATSAPP_NUMBER = '233595285709';
-
-      function registerItemToCart(name, price) {
-        if (!storeUserDB.isLoggedIn()) {
-          triggerRegisterModal();
-          return;
-        }
-        dynamicUserBasket.push({ name, price });
-        if (typeof showToast === 'function') {
-          showToast(name + ' added to your basket!', 'success');
-        } else {
-          alert(name + " added to your basket!");
-        }
-        refreshBasketUIData();
-      }
-
-      function askEnquiry(productName) {
-        const msg = `Hello Primehealthcare! I am interested in the ${productName}. Please send me more details.`;
-        const url = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-        window.open(url, '_blank');
-      }
-
-      function toggleCartDrawer() {
-        const drawer = document.getElementById('shopping-cart-drawer');
-        const overlay = document.getElementById('cart-overlay');
-        if (!drawer) return;
-        drawer.classList.toggle('open');
-        overlay.classList.toggle('open');
-        if (window.lucide && drawer.classList.contains('open')) lucide.createIcons();
-      }
-
-      function refreshBasketUIData() {
-        const cartBody = document.getElementById('cart-body');
-        const cartTotal = document.getElementById('cart-total');
-        const cartBadge = document.getElementById('cart-badge');
-        if (!cartBody || !cartTotal) return;
-
-        if (dynamicUserBasket.length === 0) {
-          cartBody.innerHTML = `<p class="text-gray-500 text-sm text-center mt-10">Your cart is empty.<br>Add items from the catalog above.</p>`;
-          cartTotal.textContent = '₦0';
-          if (cartBadge) { cartBadge.style.display = 'none'; }
-          return;
+        // B. Render Navbar Account Interface State
+        function syncAuthHeaderView() {
+            const box = document.getElementById('ecommerce-auth-panel');
+            if (!box) return;
+            if (storeUserDB.isLoggedIn()) {
+                box.innerHTML = `
+                    <div style="display:flex; align-items:center; gap:12px; font-family:sans-serif;">
+                        <span style="font-weight:600; font-size:14px; color:#d946ef;">👋 Hi, ${storeUserDB.getUserName()}</span>
+                        <button onclick="storeUserDB.logout()" style="background:#ef4444; color:white; padding:5px 12px; border-radius:6px; font-size:12px; border:none; cursor:pointer;">Logout</button>
+                    </div>`;
+            } else {
+                box.innerHTML = `<button onclick="openAuthModal('register')" style="background:#d946ef; color:white; padding:8px 16px; border-radius:8px; font-size:14px; font-weight:500; border:none; cursor:pointer;">Sign In / Register</button>`;
+            }
         }
 
-        let html = '';
-        let sum = 0;
-        dynamicUserBasket.forEach((item, idx) => {
-          sum += item.price;
-          html += `
-            <div class="flex items-center gap-4 mb-4 pb-4 border-b border-gray-800">
-              <div class="w-14 h-14 rounded-xl bg-brand-900/40 flex items-center justify-center text-xl">📦</div>
-              <div class="flex-1 min-w-0">
-                <div class="text-white font-semibold text-sm truncate">${item.name}</div>
-                <div class="text-brand-400 font-bold text-sm">₦${item.price.toLocaleString()}</div>
-              </div>
-              <button onclick="removeCartItem(${idx})" class="text-red-400 hover:text-red-300 text-xs font-bold px-2 py-1 rounded-md hover:bg-red-500/10 transition">Remove</button>
-            </div>
-          `;
+        // C. Dual-Tab Authentication Modal Controller
+        let currentAuthTab = 'signin';
+
+        function openAuthModal(tab = 'signin') {
+            const modal = document.getElementById('authModal');
+            if (!modal) return;
+            switchAuthTab(tab);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeAuthModal(e) {
+            if (e.target === document.getElementById('authModal')) closeAuthModalDirect();
+        }
+
+        function closeAuthModalDirect() {
+            const modal = document.getElementById('authModal');
+            if (modal) modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function switchAuthTab(tab) {
+            currentAuthTab = tab;
+            const regFields = document.getElementById('auth-register-fields');
+            const firstName = document.getElementById('authFirstName');
+            const lastName = document.getElementById('authLastName');
+            const phone = document.getElementById('authPhone');
+            const email = document.getElementById('authEmail');
+            const password = document.getElementById('authPassword');
+            const submitText = document.getElementById('authSubmitText');
+            const tabSignin = document.getElementById('tab-signin');
+            const tabRegister = document.getElementById('tab-register');
+            const title = document.getElementById('authModalTitle');
+
+            if (tab === 'signin') {
+                tabSignin.className = 'flex-1 py-2.5 rounded-lg text-sm font-semibold transition bg-brand-600 text-white shadow-lg';
+                tabRegister.className = 'flex-1 py-2.5 rounded-lg text-sm font-semibold transition bg-transparent text-gray-400 hover:text-white';
+                title.textContent = 'Welcome Back';
+
+                regFields.classList.add('hidden');
+                regFields.classList.remove('block');
+
+                firstName.required = false;
+                lastName.required = false;
+                phone.required = false;
+
+                email.placeholder = 'Enter your email address';
+                password.placeholder = 'Enter your password';
+                submitText.textContent = 'Sign In';
+            } else {
+                tabRegister.className = 'flex-1 py-2.5 rounded-lg text-sm font-semibold transition bg-brand-600 text-white shadow-lg';
+                tabSignin.className = 'flex-1 py-2.5 rounded-lg text-sm font-semibold transition bg-transparent text-gray-400 hover:text-white';
+                title.textContent = 'Create Account';
+
+                regFields.classList.remove('hidden');
+                regFields.classList.add('block');
+
+                firstName.required = true;
+                lastName.required = true;
+                phone.required = true;
+
+                email.placeholder = 'Create an account email';
+                password.placeholder = 'Create a strong password (Min. 8 characters)';
+                submitText.textContent = 'Register';
+            }
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('authEmail').value.trim();
+            const password = document.getElementById('authPassword').value;
+            const firstName = document.getElementById('authFirstName').value.trim();
+            const lastName = document.getElementById('authLastName').value.trim();
+            const phone = document.getElementById('authPhone').value.trim();
+
+            if (currentAuthTab === 'register') {
+                if (!firstName || !lastName || !phone || !email || password.length < 8) {
+                    showToast('Please fill in all required fields correctly.', 'error');
+                    return;
+                }
+                const userData = { firstName, lastName, phone, email };
+                storeUserDB.login(`${firstName} ${lastName}`, userData);
+            } else {
+                if (!email || !password) {
+                    showToast('Please enter your email and password.', 'error');
+                    return;
+                }
+                const stored = storeUserDB.getUserData();
+                const displayName = stored.firstName || email.split('@')[0];
+                storeUserDB.login(displayName);
+            }
+        }
+
+        // D. Order-Intent Gating for Unauthenticated Users
+        document.querySelectorAll('.order-now-trigger').forEach(el => {
+            el.addEventListener('click', function(e) {
+                if (!storeUserDB.isLoggedIn()) {
+                    e.preventDefault();
+                    openAuthModal('register');
+                }
+            });
         });
 
-        cartBody.innerHTML = html;
-        cartTotal.textContent = '₦' + sum.toLocaleString();
-        if (cartBadge) {
-          cartBadge.textContent = dynamicUserBasket.length;
-          cartBadge.style.display = 'flex';
+        // E. Shopping Basket Aggregator Core
+        let dynamicUserBasket = [];
+        const STORE_WHATSAPP_NUMBER = '233595285709';
+
+        function registerItemToCart(name, price) {
+            if (!storeUserDB.isLoggedIn()) {
+                openAuthModal('register');
+                return;
+            }
+            dynamicUserBasket.push({ name, price });
+            if (typeof showToast === 'function') {
+                showToast(name + ' added to your basket!', 'success');
+            } else {
+                alert(name + " added to your basket!");
+            }
+            refreshBasketUIData();
         }
-      }
 
-      function removeCartItem(index) {
- dynamicUserBasket.splice(index, 1);
-        refreshBasketUIData();
-      }
+        function askEnquiry(productName) {
+            const msg = `Hello Primehealthcare! I am interested in the ${productName}. Please send me more details.`;
+            const url = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
 
-      // E. Smart Order Dispatch Controller
-      function completeMultiProductCheckout() {
-        if (dynamicUserBasket.length === 0) { alert('Your shopping cart is currently empty!'); return; }
-        
-        let stringManifest = `Hello Primehealthcare! My name is ${storeUserDB.getUserName()}.\nI want to place an order for these catalog items:\n\n`;
-        let costSum = 0;
-        
-        dynamicUserBasket.forEach((item, index) => {
-          stringManifest += `${index + 1}. ${item.name} — ₦${item.price.toLocaleString()}\n`;
-          costSum += item.price;
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('shopping-cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            if (!drawer) return;
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('open');
+            if (window.lucide && drawer.classList.contains('open')) lucide.createIcons();
+        }
+
+        function refreshBasketUIData() {
+            const cartBody = document.getElementById('cart-body');
+            const cartTotal = document.getElementById('cart-total');
+            const cartBadge = document.getElementById('cart-badge');
+            if (!cartBody || !cartTotal) return;
+
+            if (dynamicUserBasket.length === 0) {
+                cartBody.innerHTML = `<p class="text-gray-500 text-sm text-center mt-10">Your cart is empty.<br>Add items from the catalog above.</p>`;
+                cartTotal.textContent = '₦0';
+                if (cartBadge) { cartBadge.style.display = 'none'; }
+                return;
+            }
+
+            let html = '';
+            let sum = 0;
+            dynamicUserBasket.forEach((item, idx) => {
+                sum += item.price;
+                html += `
+                    <div class="flex items-center gap-4 mb-4 pb-4 border-b border-gray-800">
+                        <div class="w-14 h-14 rounded-xl bg-brand-900/40 flex items-center justify-center text-xl">📦</div>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-white font-semibold text-sm truncate">${item.name}</div>
+                            <div class="text-brand-400 font-bold text-sm">₦${item.price.toLocaleString()}</div>
+                        </div>
+                        <button onclick="removeCartItem(${idx})" class="text-red-400 hover:text-red-300 text-xs font-bold px-2 py-1 rounded-md hover:bg-red-500/10 transition">Remove</button>
+                    </div>
+                `;
+            });
+
+            cartBody.innerHTML = html;
+            cartTotal.textContent = '₦' + sum.toLocaleString();
+            if (cartBadge) {
+ cartBadge.textContent = dynamicUserBasket.length;
+                cartBadge.style.display = 'flex';
+            }
+        }
+
+        function removeCartItem(index) {
+            dynamicUserBasket.splice(index, 1);
+            refreshBasketUIData();
+        }
+
+        // F. Smart Order Dispatch Controller
+        function completeMultiProductCheckout() {
+            if (dynamicUserBasket.length === 0) { alert('Your shopping cart is currently empty!'); return; }
+            
+            let stringManifest = `Hello Primehealthcare! My name is ${storeUserDB.getUserName()}.\nI want to place an order for these catalog items:\n\n`;
+            let costSum = 0;
+            
+            dynamicUserBasket.forEach((item, index) => {
+                stringManifest += `${index + 1}. ${item.name} — ₦${item.price.toLocaleString()}\n`;
+                costSum += item.price;
+            });
+            
+            stringManifest += `\nTotal Order Value: ₦${costSum.toLocaleString()}\nPlease send over my OPay payment details!`;
+            const waUrl = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(stringManifest)}`;
+            window.open(waUrl, '_blank');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            syncAuthHeaderView();
+            lucide.createIcons();
         });
-        
-        stringManifest += `\nTotal Order Value: ₦${costSum.toLocaleString()}\nPlease send over my OPay payment details!`;
-        const waUrl = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(stringManifest)}`;
-        window.open(waUrl, '_blank');
-      }
-
-      window.addEventListener('DOMContentLoaded', () => {
-        syncAuthHeaderView();
-      });
- </script>
+    </script>
 
 </body>
 </html>
