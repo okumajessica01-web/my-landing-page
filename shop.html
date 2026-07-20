@@ -1766,51 +1766,6 @@ window.addEventListener('DOMContentLoaded', () => {
       // Sync basic page elements
       syncAuthHeaderView();
       lucide.createIcons();
-
-      // 1. Capture User Registration Data (Sign Up Tab)
-      const regForm = document.querySelector('#registrationForm')  document.querySelector('.register-form')  document.querySelector('form');
-      if (regForm) {
-          regForm.addEventListener('submit', async (e) => {
-              e.preventDefault();
-              const email = regForm.querySelector('input[type="email"]').value;
-              const password = regForm.querySelector('input[type="password"]').value;
-              const firstName = regForm.querySelector('#firstName')?.value  regForm.querySelector('input[placeholder*="first"]')?.value  '';
-              const lastName = regForm.querySelector('#lastName')?.value  regForm.querySelector('input[placeholder*="last"]')?.value  '';
-              const phone = regForm.querySelector('input[type="tel"]')?.value  regForm.querySelector('input[placeholder*="phone"]')?.value  '';
-
-              const { data, error } = await supabase.auth.signUp({
-                  email,
-                  password,
-                  options: {
-                      data: { first_name: firstName, last_name: lastName, phone_number: phone }
-                  }
-              });
-              if (error) {
-                  alert("Registration Error: " + error.message);
-              } else {
-                  alert("Account created successfully! Welcome to Deprime Healthcare.");
-                  window.location.reload();
-              }
-          });
-      }
-
-      // 2. Capture Returning User Data (Sign In Tab)
-      const loginForm = document.querySelector('#loginForm') || document.querySelector('.login-form');
-      if (loginForm) {
-          loginForm.addEventListener('submit', async (e) => {
-              e.preventDefault();
-              const email = loginForm.querySelector('input[type="email"]').value;
-              const password = loginForm.querySelector('input[type="password"]').value;
-
-              const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-              if (error) {
-                  alert("Login Error: " + error.message);
-              } else {
-                  alert("Welcome back!");
-                  window.location.reload();
-              }
-          });
-      }
 });
 </script>
 <!--Start of Tawk.to Script-->
