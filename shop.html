@@ -1764,11 +1764,35 @@
             const waUrl = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(stringManifest)}`;
             window.open(waUrl, '_blank');
         }
+window.addEventListener('DOMContentLoaded', () => {
+    syncAuthHeaderView();
+    lucide.createIcons();
 
-        window.addEventListener('DOMContentLoaded', () => {
-            syncAuthHeaderView();
-            lucide.createIcons();
-});           
+    // 🚀 Connect your buttons to Clerk automatically
+    window.Clerk.load().then(() => {
+        // Automatically targets all order buttons and sign-in links on your page
+        const orderButtons = document.querySelectorAll('button') || document.querySelectorAll('.order-button');
+        const authButtons = document.querySelectorAll('.signin-btn') || document.querySelectorAll('#signin');
+
+        // Loop through and make every order button require a Clerk Sign-Up
+        orderButtons.forEach(button => {
+            if (button.textContent.toLowerCase().includes('order') || button.textContent.toLowerCase().includes('buy')) {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.Clerk.openSignUp({ afterSignUpUrl: window.location.href });
+                });
+            }
+        });
+
+        // Make your Sign In link open the login window
+        authButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.Clerk.openSignIn({ afterSignInUrl: window.location.href });
+            });
+        });
+    });
+});
 </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
