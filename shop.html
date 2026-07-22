@@ -100,7 +100,7 @@
         }
 
         .product-card-hover:hover {
-            transform: translateY(-8px);
+ transform: translateY(-8px);
             box-shadow: 0 20px 60px rgba(217, 70, 239, 0.2);
         }
         .product-card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
@@ -215,43 +215,83 @@
                 </div>
             </div>
 
-            <form id="orderForm" onsubmit="handleOrder(event)" class="space-y-4">
+            <form id="orderForm" method="POST" action="https://formspree.io/YOUR_FORMSPREE_ENDPOINT_HERE" onsubmit="handleOrder(event)" class="space-y-4">
+                <input type="hidden" name="_subject" value="New Order from Deprime Healthcare Website!">
+                <input type="hidden" name="product_name" id="hiddenProductName" value="">
+                <input type="hidden" name="product_price" id="hiddenProductPrice" value="">
+
                 <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Full Name <span class="text-red-400">*</span></label>
+                    <label for="fullName" class="block text-sm font-medium text-gray-300 mb-1.5">Full Name <span class="text-red-400">*</span></label>
                     <div class="relative">
                         <i data-lucide="user" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
-                        <input type="text" id="fullName" required placeholder="Enter your full name" 
+                        <input type="text" id="fullName" name="full_name" required placeholder="Enter your full name" 
                             class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
                     </div>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Phone Number <span class="text-red-400">*</span></label>
-                    <div class="relative">
-                        <i data-lucide="phone" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
-                        <input type="tel" id="phoneNumber" required placeholder="e.g. +2335678946865" 
-                            class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="phoneNumber" class="block text-sm font-medium text-gray-300 mb-1.5">Phone Number <span class="text-red-400">*</span></label>
+                        <div class="relative">
+                            <i data-lucide="phone" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                            <input type="tel" id="phoneNumber" name="phone_number" required placeholder="e.g. +254..." 
+                                class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="whatsappNumber" class="block text-sm font-medium text-gray-300 mb-1.5">WhatsApp Number <span class="text-red-400">*</span></label>
+                        <div class="relative">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                            <input type="tel" id="whatsappNumber" name="whatsapp_number" required placeholder="Enter WhatsApp number" 
+                                class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                        </div>
                     </div>
                 </div>
+
                 <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Delivery Address <span class="text-red-400">*</span></label>
+                    <label for="deliveryAddress" class="block text-sm font-medium text-gray-300 mb-1.5">Delivery Address <span class="text-red-400">*</span></label>
                     <div class="relative">
                         <i data-lucide="map-pin" class="w-5 h-5 text-gray-500 absolute left-3 top-3"></i>
-                        <textarea id="deliveryAddress" required rows="3" placeholder="Full delivery address including city & state" 
-                            class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition resize-none"></textarea>
+                        <input type="text" id="deliveryAddress" name="delivery_address" required placeholder="Enter your full home address" 
+                            class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
                     </div>
                 </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="province" class="block text-sm font-medium text-gray-300 mb-1.5">Province <span class="text-red-400">*</span></label>
+                        <div class="relative">
+                            <i data-lucide="map" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                            <input type="text" id="province" name="province" required placeholder="Enter your province" 
+                                class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="city" class="block text-sm font-medium text-gray-300 mb-1.5">City <span class="text-red-400">*</span></label>
+                        <div class="relative">
+                            <i data-lucide="home" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                            <input type="text" id="city" name="city" required placeholder="Enter your city" 
+                                class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 transition">
+                        </div>
+                    </div>
+                </div>
+
                 <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-1.5">Quantity</label>
-                    <select id="quantity" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-white transition">
-                        <option value="1">1 Pack</option>
-                        <option value="2">2 Packs (Save 10%)</option>
-                        <option value="3">3 Packs (Save 15%)</option>
-                        
-                    </select>
+                    <label for="quantity" class="block text-sm font-medium text-gray-300 mb-1.5">Quantity <span class="text-red-400">*</span></label>
+                    <div class="relative">
+                        <i data-lucide="package" class="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                        <select id="quantity" name="quantity" required class="w-full bg-dark-900 border border-gray-700 rounded-xl pl-11 pr-10 py-3 text-white transition appearance-none cursor-pointer">
+                            <option value="">Select your pack...</option>
+                            <option value="1 Pack: Ksh 3500">1 Pack: Ksh 3500</option>
+                            <option value="2 Packs (Save 10%): Ksh 6300">2 Packs (Save 10%): Ksh 6300</option>
+                            <option value="3 Packs (Save 15%): Ksh 8925">3 Packs (Save 15%): Ksh 8925</option>
+                        </select>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                    </div>
                 </div>
 
                 <div class="bg-gold-500/10 border border-gold-500/30 rounded-xl p-3 flex items-start gap-2">
-                    <i data-lucide="shield-check" class="w-5 h-5 text-gold-400 mt-0.5 flex-shrink-0"></i>
+ <i data-lucide="shield-check" class="w-5 h-5 text-gold-400 mt-0.5 flex-shrink-0"></i>
                     <p class="text-xs text-gold-400">🔒 Your information is secure. We will only contact you via WhatsApp to confirm your order.</p>
                 </div>
 
@@ -427,7 +467,7 @@
                 HURRY! THIS OFFER EXPIRES IN:
             </p>
             <div class="flex justify-center gap-3 md:gap-4" id="countdown">
-                <div class="text-center">
+ <div class="text-center">
                     <div class="countdown-digit rounded-xl px-4 py-3 md:px-6 md:py-4">
                         <span id="hours" class="text-3xl md:text-4xl font-black text-brand-400">02</span>
                     </div>
@@ -498,7 +538,7 @@
                 </div>
             </div>
             <div class="text-center mt-10">
-                <p class="text-xl md:text-2xl font-bold text-brand-400">If ANY of this sounds like you... <br>You're NOT alone, and there IS a solution! 👇</p>
+ <p class="text-xl md:text-2xl font-bold text-brand-400">If ANY of this sounds like you... <br>You're NOT alone, and there IS a solution! 👇</p>
             </div>
         </div>
     </section>
@@ -520,7 +560,7 @@
                     <p class="text-gray-400 text-sm">Go from 2 minutes to 30+ minutes. Our gummies help you control your release and satisfy her completely.</p>
                 </div>
                 <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+ <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
                         <i data-lucide="zap" class="w-7 h-7 text-brand-400"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-2">Rock-Hard Erections</h3>
@@ -534,7 +574,7 @@
                     <p class="text-gray-400 text-sm">Reignite your sex drive naturally. You'll WANT it more — and be ABLE to deliver every single time.</p>
                 </div>
                 <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+ <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
                         <i data-lucide="battery-charging" class="w-7 h-7 text-brand-400"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-2">Unstoppable Stamina</h3>
@@ -548,7 +588,7 @@
                     <p class="text-gray-400 text-sm">Walk into the bedroom with zero anxiety. When you KNOW you can perform, everything changes.</p>
                 </div>
                 <div class="bg-dark-900/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/50 transition group">
-                    <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
+ <div class="w-14 h-14 rounded-2xl bg-brand-500/20 flex items-center justify-center mb-4 group-hover:bg-brand-500/30 transition">
                         <i data-lucide="leaf" class="w-7 h-7 text-brand-400"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-2">100% Natural Formula</h3>
@@ -562,7 +602,7 @@
     <section class="bg-dark-900">
         <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
             <div class="text-center mb-12">
-                <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">What's Inside?</span>
+ <span class="text-brand-400 text-sm font-bold uppercase tracking-wider">What's Inside?</span>
                 <h2 class="text-3xl md:text-4xl font-display font-bold mt-3">8 Power-Packed <span class="gradient-text">Ingredients</span></h2>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -572,7 +612,7 @@
                     <p class="text-gray-500 text-xs mt-1">Boosts libido & endurance</p>
                 </div>
                 <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
-                    <div class="text-3xl mb-2">🌿</div>
+ <div class="text-3xl mb-2">🌿</div>
                     <h4 class="font-bold text-sm">Tongkat Ali</h4>
                     <p class="text-gray-500 text-xs mt-1">Increases testosterone naturally</p>
                 </div>
@@ -587,7 +627,7 @@
                     <p class="text-gray-500 text-xs mt-1">Supports male vitality</p>
                 </div>
                 <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-5 text-center hover:border-brand-500/50 transition">
-                    <div class="text-3xl mb-2">🌰</div>
+ <div class="text-3xl mb-2">🌰</div>
                     <h4 class="font-bold text-sm">Tribulus</h4>
                     <p class="text-gray-500 text-xs mt-1">Elevates drive & performance</p>
                 </div>
@@ -827,7 +867,7 @@
                     </div>
                 </div>
                 <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/30 transition">
-                    <div class="star-rating text-sm mb-3">★★★★★</div>
+ <div class="star-rating text-sm mb-3">★★★★★</div>
                     <p class="text-gray-300 text-sm leading-relaxed">"I'm 47 and thought my active days were over. These gummies proved me wrong! My girlfriend is 32 and she can't keep up with me now 😏. Thank you VitalGummies!"</p>
                     <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-800">
                         <img src="http://static.photos/people/200x200/8" alt="Customer" class="w-10 h-10 rounded-full object-cover">
@@ -849,7 +889,7 @@
                     </div>
                 </div>
                 <div class="bg-dark-800/80 border border-gray-800 rounded-2xl p-6 hover:border-brand-500/30 transition">
-                    <div class="star-rating text-sm mb-3">★★★★★</div>
+ <div class="star-rating text-sm mb-3">★★★★★</div>
                     <p class="text-gray-300 text-sm leading-relaxed">"My marriage was falling apart because I couldn't satisfy my wife. A friend recommended this and it's been a game-changer. She looks at me differently now ❤️"</p>
                     <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-800">
                         <img src="http://static.photos/people/200x200/10" alt="Customer" class="w-10 h-10 rounded-full object-cover">
@@ -972,7 +1012,7 @@
                     <div class="text-xs text-brand-300 font-bold mt-2">2 Packs</div>
                 </button>
                 <button onclick="openOrderModal('Ultimate Pack', 'KSh7000')" class="bg-dark-900/80 border border-gray-700 hover:border-brand-500 rounded-2xl p-6 text-center transition group">
-                    <div class="text-sm text-gray-500 mb-1">Ultimate</div>
+ <div class="text-sm text-gray-500 mb-1">Ultimate</div>
                     <div class="text-2xl font-black text-white group-hover:text-brand-400 transition">KSh7000</div>
                     <div class="text-xs text-gray-500 line-through">KSh10500</div>
                     <div class="text-xs text-gold-400 font-bold mt-2">3 Packs — Save Most!</div>
@@ -1064,13 +1104,12 @@
     <div id="stickyCta" class="sticky-cta bg-dark-800/95 backdrop-blur-lg border-t border-gray-800 px-4 py-3">
         <div class="max-w-lg mx-auto flex items-center justify-between gap-3">
             <div class="hidden sm:block">
-                <p class="font-bold text-sm">Primehealthcare</p>
+ <p class="font-bold text-sm">Primehealthcare</p>
                 <p class="text-brand-400 text-xs font-bold">KSh5000 <span class="text-gray-500 line-through text-xs">KSh7000</span></p>
             </div>
             <a href="#order-section" class="flex-1 sm:flex-none shimmer-btn text-white font-bold py-3 px-6 rounded-xl text-sm text-center flex items-center justify-center gap-2">
                 <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                Order Now — 50% OFF
-            </a>
+                Order Now — 50% OFF </a>
         </div>
     </div>
 
@@ -1165,7 +1204,7 @@
 
         // ===== VIEWER COUNT =====
         function updateViewerCount() {
-            const el = document.getElementById('viewerCount');
+ const el = document.getElementById('viewerCount');
             let count = parseInt(el.textContent);
             count += Math.floor(Math.random() * 3) - 1;
             count = Math.max(30, Math.min(80, count));
@@ -1205,6 +1244,9 @@
             document.getElementById('summaryPrice').textContent = price;
             document.getElementById('summaryImg').src = product ? product.image : '';
             
+            document.getElementById('hiddenProductName').value = productName || '';
+            document.getElementById('hiddenProductPrice').value = price || '';
+            
             document.getElementById('orderModal').classList.add('active');
             document.body.style.overflow = 'hidden';
             lucide.createIcons();
@@ -1221,46 +1263,44 @@
             document.body.style.overflow = '';
         }
 
-        // ===== HANDLE ORDER — WhatsApp Integration =====
+        // ===== HANDLE ORDER — Dual Action: Formspree + WhatsApp =====
         function handleOrder(e) {
             e.preventDefault();
-            
-            const name = document.getElementById('fullName').value.trim();
-            const phone = document.getElementById('phoneNumber').value.trim();
-            const address = document.getElementById('deliveryAddress').value.trim();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const whatsappNumber = document.getElementById('whatsappNumber').value.trim();
+            const deliveryAddress = document.getElementById('deliveryAddress').value.trim();
+            const province = document.getElementById('province').value.trim();
+            const city = document.getElementById('city').value.trim();
             const quantity = document.getElementById('quantity').value;
 
-            if (!name || !phone || !address) {
+            if (!fullName || !phoneNumber || !whatsappNumber || !deliveryAddress || !province || !city || !quantity) {
                 showToast('Please fill in all required fields!', 'error');
                 return;
             }
 
-            // WhatsApp message
-            const message = `🛒 *NEW ORDER — Primehealthcare*%0A%0A` +
-                `📦 *Product:* ${currentProduct}%0A` +
-                `💰 *Price:* ${currentPrice}%0A` +
-                `🔢 *Quantity:* ${quantity} pack(s)%0A%0A` +
-                `👤 *Full Name:* ${name}%0A` +
-                `📱 *Phone:* ${phone}%0A` +
-                `📍 *Delivery Address:* ${address}%0A%0A` +
-                `✅ I'd like to place this order. Please confirm availability and delivery timeline.%0A%0A` +
-                `Thank you! 🙏`;
+            const form = document.getElementById('orderForm');
+            const formData = new FormData(form);
 
-            const whatsappUrl = `https://wa.me/233595285709?text=${message}`;
-            
-            // Show toast
-            showToast('Redirecting to WhatsApp... 🎉', 'success');
-            
-            // Open WhatsApp
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-            }, 1000);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).catch(function(error) {
+                console.log('Formspree submission note:', error);
+            }).finally(function() {
+                const message = 'New Order from Deprime Healthcare! Name: ' + fullName +
+                    ' | Phone: ' + phoneNumber +
+                    ' | WhatsApp: ' + whatsappNumber +
+                    ' | Address: ' + deliveryAddress + ', ' + city + ', ' + province +
+                    ' | Quantity: ' + quantity;
 
-            // Close modal after delay
-            setTimeout(() => {
-                closeModalDirect();
-                document.getElementById('orderForm').reset();
-            }, 1500);
+                const whatsappUrl = 'https://wa.me/233595285709?text=' + encodeURIComponent(message);
+                window.location.href = whatsappUrl;
+            });
         }
 
         // ===== PRODUCT DETAIL MODAL =====
@@ -1271,7 +1311,7 @@
             const html = `
                 <div class="relative">
                     <img src="${product.image}" alt="${product.name}" class="w-full aspect-video object-cover rounded-t-3xl">
-                    <div class="absolute bottom-4 left-4 bg-dark-900/80 backdrop-blur-sm px-4 py-2 rounded-xl">
+ <div class="absolute bottom-4 left-4 bg-dark-900/80 backdrop-blur-sm px-4 py-2 rounded-xl">
                         <span class="text-brand-400 font-bold text-xl">${product.price}</span>
                         <span class="text-gray-500 line-through text-sm ml-2">${product.oldPrice}</span>
                     </div>
@@ -1334,7 +1374,7 @@
 
         // ===== FAQ =====
         function toggleFaq(btn) {
-            const content = btn.nextElementSibling;
+ const content = btn.nextElementSibling;
             const icon = btn.querySelector('.faq-icon');
             const isOpen = !content.classList.contains('hidden');
             
@@ -1384,7 +1424,7 @@
 
         // ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+ entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('slide-up');
                     entry.target.style.opacity = '1';
