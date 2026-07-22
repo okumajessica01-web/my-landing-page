@@ -1279,28 +1279,26 @@
                 showToast('Please fill in all required fields!', 'error');
                 return;
             }
+fetch("https://formspree.io/f/xbdnknyb", {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+    .catch(error => {
+        console.log("Formspree submission error: ", error);
+    });
 
-            const form = document.getElementById('orderForm');
-            const formData = new FormData(form);
+    const message = New Order from Deprime Healthcare!\n\n +
+                    *Name:* ${fullName}\n +
+                    *Phone:* ${phoneNumber}\n +
+                    *WhatsApp:* ${whatsappNumber}\n +
+                    *Address:* ${deliveryAddress}, ${city}, ${province}\n +
+                    *Quantity:* ${quantity};
 
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).catch(function(error) {
-                console.log('Formspree submission note:', error);
-            }).finally(function() {
-                const message = 'New Order from Deprime Healthcare! Name: ' + fullName +
-                    ' | Phone: ' + phoneNumber +
-                    ' | WhatsApp: ' + whatsappNumber +
-                    ' | Address: ' + deliveryAddress + ', ' + city + ', ' + province +
-                    ' | Quantity: ' + quantity;
-
-                const whatsappUrl = 'https://wa.me/233595285709?text=' + encodeURIComponent(message);
+   const whatsappUrl = 'https://wa.me/233595285709?text=' + encodeURIComponent(message);
                 window.location.href = whatsappUrl;
-            });
         }
 
         // ===== PRODUCT DETAIL MODAL =====
