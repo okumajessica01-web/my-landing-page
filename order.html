@@ -5,284 +5,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Your Order - Deprime Healthcare</title>
     <style>
-        :root {
-            --bg-main: #0a0a0d;
-            --bg-card: #141419;
-            --border-color: #22222a;
-            --gradient-accent: linear-gradient(135deg, #d946ef 0%, #a855f7 50%, #6366f1 100%);
-            --gradient-btn: linear-gradient(90deg, #ec4899 0%, #8b5cf6 100%);
-            --text-muted: #9ca3af;
-        }
         body {
-            background-color: var(--bg-main);
+            background-color: #0f0f12;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .split-container {
-            display: flex;
-            width: 100%;
-            max-width: 1100px;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            margin: 30px 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-        }
-        
-        /* Left Side: Product Showcase & Long Copy */
-        .product-showcase-side {
-            flex: 1.2;
-            background: linear-gradient(145deg, #110c1f 0%, #07070a 100%);
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid var(--border-color);
-        }
-        .image-9-16-container {
-            width: 100%;
-            max-width: 320px;
-            margin: 0 auto 30px auto;
-            aspect-ratio: 9 / 16;
+        .form-container {
+            background-color: #1a1a1f;
+            border: 1px solid #2d2d35;
             border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.25);
-            border: 1px solid #3b0764;
-            background-color: #1e1e24;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-        .image-9-16-container img {
+            padding: 30px;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .image-9-16-container img:hover {
-            transform: scale(1.05);
-        }
-        .badge {
-            background: var(--gradient-btn);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            display: inline-block;
-            width: max-content;
-            margin-bottom: 15px;
-        }
-        .product-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin: 0 0 15px 0;
-            background: linear-gradient(90deg, #ffffff, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .powerful-description {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #e5e7eb;
-            margin-bottom: 25px;
-        }
-        .powerful-description p {
-            margin: 0 0 15px 0;
-        }
-        .powerful-description strong {
-            color: #f472b6;
-        }
-        .value-bullets {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-        }
-        .value-bullets li {
-            font-size: 14px;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: flex-start;
-            color: #d1d5db;
-            line-height: 1.4;
-        }
-        .value-bullets li::before {
-            content: "✓";
-            margin-right: 12px;
-            color: #22c55e;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        /* Right Side: Order Entry Form */
-        .form-side {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background-color: #111116;
+            max-width: 480px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         h2 {
-            margin: 0 0 6px 0;
-            font-size: 24px;
+            margin-top: 0;
             color: #ffffff;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 8px;
         }
         .subtitle {
-            color: var(--text-muted);
-            font-size: 13px;
-            margin-bottom: 25px;
-        }
-        
-        /* 🌈 ATTRACTIVE COLORFUL READ MORE BUTTON */
-        .colorful-readmore-btn {
-            display: block;
+            color: #9ca3af;
             text-align: center;
-            text-decoration: none;
-            background: var(--gradient-accent);
-            color: #ffffff;
-            padding: 14px;
-            border-radius: 10px;
             font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
-            transition: all 0.3s ease;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            margin-bottom: 24px;
         }
-        .colorful-readmore-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(217, 70, 239, 0.6);
-            filter: brightness(1.1);
-        }
-
         .form-group {
             margin-bottom: 16px;
         }
         label {
             display: block;
             margin-bottom: 6px;
-            font-size: 12px;
+            font-size: 13px;
             color: #d1d5db;
             font-weight: 500;
         }
         input, select {
             width: 100%;
             padding: 12px;
-            background-color: #1e1e24;
-            border: 1px solid #33333f;
+            background-color: #26262f;
+            border: 1px solid #3f3f46;
             color: #ffffff;
             border-radius: 8px;
             box-sizing: border-box;
-            font-size: 14px;
-            transition: all 0.2s;
+            font-size: 15px;
+            transition: border-color 0.2s;
         }
         input:focus, select:focus {
             outline: none;
             border-color: #a855f7;
-            box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
         }
         .form-row {
             display: flex;
-            gap: 12px;
+            gap: 16px;
         }
         .form-row .form-group {
             flex: 1;
         }
         .notice {
-            font-size: 11px;
+            font-size: 12px;
             color: #a1a1aa;
             text-align: center;
             margin: 20px 0;
-            line-height: 1.4;
+            line-height: 1.5;
         }
-        .submit-btn {
+        button {
             width: 100%;
-            padding: 15px;
-            background: var(--gradient-btn);
+            padding: 14px;
+            background-color: #a855f7;
             color: #ffffff;
             border: none;
             border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
-            transition: all 0.2s;
+            transition: background-color 0.2s;
         }
-        .submit-btn:hover {
-            filter: brightness(1.1);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+        button:hover {
+            background-color: #9333ea;
         }
-
-        /* 📱 Mobile Responsiveness */
-        @media (max-width: 850px) {
-            .split-container {
-                flex-direction: column;
-                margin: 15px;
-            }
-            .product-showcase-side {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding: 35px 20px;
-            }
-            .form-side {
-                padding: 35px 20px;
-            }
-            .product-title {
-                font-size: 24px;
-            }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #22c55e;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
-<div class="split-container">
-    
-    <!-- 🌟 LEFT SIDE: 9:16 IMAGE, BADGE, & LONG COPY -->
-    <div class="product-showcase-side">
-        <span class="badge">🔥 Best Seller in Kenya</span>
-        <h1 class="product-title">Deprime Healthcare Vitality Formula</h1>
-        
-        <div class="image-9-16-container">
-            <!-- 🖼️ IMAGE PLACEHOLDER: Change the link below to your photo path later -->
-            <img src="https://deprimehealthcare.store" alt="Deprime Healthcare Supplement Pack">
+<div class="form-container">
+    <h2>Deprime Healthcare</h2>
+    <div class="subtitle">Please fill out your delivery details below to lock in your order.</div>
+    <a href="https://deprimehealthcare.store/shop.html" style="display: block; text-align: center; text-decoration: none; background-color: #27272a; color: #e4e4e7; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 500; margin-bottom: 20px; border: 1px solid #3f3f46; transition: all 0.2s;">
+    🔍 Read More About Our Products
+</a>
+    <form id="directOrderForm" action="https://formspree.io/f/xbdnknyb" method="POST">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="Full Name" required placeholder="Enter your full name">
         </div>
         
-        <div class="powerful-description">
-            <p>
-                Are you ready to reclaim your peak performance, unbound energy, and vibrant health? Our premium health solution is scientifically engineered for individuals who refuse to settle for constant exhaustion and low physical drive. 
-            </p>
-            <p>
-                Every single dose delivers an ultra-potent blend of **100% organic, bio-available extracts** that work on a deep level to optimize circulation, increase metabolic stamina, and support immediate muscular recovery. Whether you are pushing through highly demanding workdays or maximizing your private wellness intervals, this formula ensures you stay strong, sharp, and indefatigable.
-            </p>
-            <p>
-                Stop letting daily fatigue dictate your potential. Thousands of verified clients across Kenya have already swapped temporary energy drinks and unverified alternatives for this long-lasting, crash-free physical optimization system. **Your body deserves elite healthcare.**
-            </p>
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="Phone Number" required placeholder="e.g. +254...">
         </div>
         
-        <ul class="value-bullets">
-            <li><strong>Prescription Guidelines:</strong> Take 1 in the morning and 1 at night for maximum daily power and maximum baseline stamina.</li>
-            <li><strong>Premium Grade Potency:</strong> High-concentration active compounds for visible milestone tracking.</li>
-            <li><strong>Discrete Delivery Processing:</strong> Secure, anonymous wrapping dropped right to your doorstep.</li>
-            <li><strong>Zero Artificial Crashes:</strong> Pure natural alignment providing clean baseline focus all day.</li>
-            <li><strong>Verified Across East Africa:</strong> Safe, certified production standard trusted by families.</li>
-        </ul>
-    </div>
-    
-    <!-- 📋 RIGHT SIDE: COLORFUL REDIRECT BUTTON & CHECKOUT FORM -->
-    <div class="form-side">
-        <h2>Secure Your Delivery</h2>
+        <div class="form-group">
+            <label for="whatsappNumber">WhatsApp Number</label>
+            <input type="tel" id="whatsappNumber" name="WhatsApp Number" required placeholder="Enter WhatsApp number">
+        </div>
+        
+        <div class="form-group">
+            <label for="deliveryAddress">Delivery Address</label>
+            <input type="text" id="deliveryAddress" name="Delivery Address" required placeholder="Enter your full address/building/estate">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="province">Province / Region</label>
+                <input type="text" id="province" name="Province" required placeholder="Province">
+            </div>
+            <div class="form-group">
+                <label for="city">City / Town</label>
+                <input type="text" id="city" name="City" required placeholder="City">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <select id="quantity" name="Quantity">
+                <option value="1 Pack: Ksh 3500">1 Pack: Ksh 3500</option>
+                <option value="2 Packs (Save 10%): Ksh 5000">2 Packs (Save 10%): Ksh 5000</option>
+                <option value="3 Packs (Save 15%): Ksh 7000">3 Packs (Save 15%): Ksh 7000</option>
+            </select>
+        </div>
+        
+        <div class="notice">
+            🔒 Your information is completely secure. We will review your entry and confirm delivery setup with you shortly.
+        </div>
+        
+        <button type="submit" id="submitBtn">Submit Order Details</button>
+        <div id="successMsg" class="success-message">🎉 Order submitted successfully! You can close this window now.</div>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById('directOrderForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', function(e) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Submitting Order...";
+        
+        // Formspree handles the POST request automatically. 
+        // We add a tiny delay to show a beautiful success note before Formspree's standard completion screen takes over.
+        setTimeout(() => {
+            successMsg.style.display = "block";
+        }, 800);
+    });
+</script>
+
+</body>
+</html>
+
 <div class="form-container">
     <h2>Deprime Healthcare</h2>
     <div class="subtitle">Please fill out your delivery details below to lock in your order.</div>
