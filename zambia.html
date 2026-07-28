@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deprime Healthcare Zambia — Premium Natural Performance Formula | Order Now</title>
+<style>
+:root {
+  --bg-deep: #070709;
+  --bg-surface: #121216;
+  --bg-card: #0e0e12;
+  --border: #22222a;
+  --cyan: #00f0ff;
+  --purple: #a855f7;
+  --emerald: #10b981;
+  --text: #e2e8f0;
+  --text-dim: #9ca3af;
+  --danger: #ef4444;
+  --gold: #fbbf24;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+/* Utilities */
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.hidden { display: none; }
+
+/* Layout shell */
+.master-container { max-width: 1100px; margin: 0 auto; padding: 0 20px 40px; }
+
+/* Urgency bar */
+.urgency-bar {
+  background: linear-gradient(90deg, rgba(0,240,255,0.06), rgba(168,85,247,0.06));
+  border-bottom: 1px solid var(--border);
+  color: var(--emerald);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 10px 0;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+.logo {
+  font-weight: 900;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nav-cta {
+  background: linear-gradient(90deg, var(--cyan), var(--emerald));
+  color: #000;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: filter .2s;
+}
+.nav-cta:hover { filter: brightness(1.2); }
+
+/* Split layout */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+}
+.right-panel {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+}
+
+@media (max-width: 980px) {
+  .split-layout { grid-template-columns: 1fr; gap: 32px; }
+  .right-panel { position: static; order: -1; }
+}
+
+/* Sections */
+.section { margin-top: 56px; }
+.section-top { margin-top: 8px; }
+.section-heading {
+  font-size: 1.7rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--cyan), var(--purple), var(--emerald));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+.section-sub {
+  color: var(--text-dim);
+  margin-bottom: 24px;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  color: #ccfbf1;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 8px 14px;
+  border-radius: 100px;
+}
+
+/* Hero */
+.hero-title {
+  font-size: 2.6rem;
+  line-height: 1.1;
+  font-weight: 900;
+  margin: 16px 0 12px;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  max-width: 540px;
+}
+
+/* Poster 9:16 */
+.poster-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  aspect-ratio: 9/16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.poster-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+.poster-fallback {
+  position: relative;
+  color: var(--text-dim);
+  z-index: 1;
+  padding: 20px;
+  pointer-events: none;
+}
+.poster-fallback span { font-size: 2.5rem; display: block; margin-bottom: 8px; }
+.poster-fallback p { font-weight: 700; font-size: 1rem; }
+.poster-fallback small { font-weight: 400; opacity: 0.7; }
+
+/* Trust pills */
+.trust-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+/* CTA */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--emerald));
+  color: #000;
+  font-weight: 900;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: filter .2s, transform .1s;
+}
+.cta-button:hover { filter: brightness(1.25); }
+.cta-button:active { transform: scale(0.98); }
+
+/* Countdown strip */
+.stat-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  flex-wrap: wrap;
+}
+.stat-digit {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--cyan);
+  font-variant-numeric: tabular-nums;
+  min-width: 40px;
+  text-align: center;
+}
+.stat-sep { font-size: 1.4rem; color: var(--purple); font-weight: 900; }
+.stat-label { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; text-align: center; display: block; margin-top: 4px; }
+.viewers { color: var(--gold); font-weight: 800; }
+
+/* Grids */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 768px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } .grid-6 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .grid-2, .grid-3, .grid-6 { grid-template-columns: 1fr; } }
+
+/* Cards */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  transition: transform .2s, border-color .2s;
+}
+.card:hover { border-color: rgba(0,240,255,0.35); transform: translateY(-3px); }
+.card-icon { font-size: 1.6rem; margin-bottom: 10px; }
+.card-title { font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; }
+.card p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.65; }
+
+/* Ingredient chips */
+.chip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 720px) { .chip-grid { grid-template-columns: repeat(2, 1fr); } }
+.chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 12px;
+  text-align: center;
+  transition: border-color .2s;
+}
+.chip:hover { border-color: rgba(16,185,129,0.4); }
+.chip-emoji { font-size: 1.8rem; line-height: 1; margin-bottom: 8px; }
+.chip-title { font-weight: 800; font-size: 0.9rem; }
+.chip-desc { font-size: 0.78rem; color: var(--text-dim); margin-top: 4px; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 640px) { .steps { grid-template-columns: 1fr; } }
+.step { text-align: center; }
+.step-num {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,240,255,0.08), rgba(168,85,247,0.08));
+  border: 1px solid rgba(0,240,255,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 1.2rem; color: var(--cyan);
+  margin: 0 auto 14px;
+}
+.step-title { font-weight: 800; margin-bottom: 6px; }
+.step p { color: var(--text-dim); font-size: 0.9rem; }
+
+/* Compare / Before-After */
+.compare-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; text-align: center; }
+.compare-emoji { font-size: 2rem; margin-bottom: 8px; }
+.compare-row { display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 800; }
+.compare-from { color: var(--danger); text-decoration: line-through; }
+.compare-to { color: var(--emerald); font-size: 1.15rem; }
+
+/* Package cards */
+.pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 768px) { .pkg-grid { grid-template-columns: 1fr; } }
+.pkg-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px 18px;
+  position: relative;
+  text-align: center;
+  transition: transform .2s, border-color .2s;
+}
+.pkg-card:hover { transform: translateY(-4px); }
+.pkg-popular { border-color: rgba(0,240,255,0.4); box-shadow: 0 0 40px rgba(0,240,255,0.05); }
+.pkg-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--danger);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+}
+.pkg-top { background: rgba(0,240,255,0.12); color: #a5f3fc; font-size: 0.72rem; font-weight: 900; padding: 6px 0; margin: -22px -18px 12px; border-top-left-radius: 18px; border-top-right-radius: 18px; border-bottom: 1px solid rgba(0,240,255,0.18); }
+.pkg-title { font-weight: 900; font-size: 1.1rem; margin-bottom: 4px; }
+.pkg-price { font-size: 2rem; font-weight: 900; color: var(--emerald); }
+.pkg-old { color: var(--text-dim); text-decoration: line-through; font-size: 0.95rem; }
+.pkg-note { color: var(--text-dim); font-size: 0.88rem; margin: 10px 0 14px; }
+.pkg-btn {
+  width: 100%; padding: 12px;
+  border-radius: 12px; border: none; font-weight: 800; cursor: pointer;
+  background: linear-gradient(90deg, var(--cyan), var(--emerald)); color: #000;
+  transition: filter .2s, transform .1s;
+}
+.pkg-btn:hover { filter: brightness(1.25); }
+.pkg-btn:active { transform: scale(0.98); }
+.pkg-btn-outline {
+  width: 100%; padding: 12px;
+  border-radius: 12px; border: 1px solid var(--border); background: transparent; color: var(--text); font-weight: 700; cursor: pointer; margin-top: 8px;
+  transition: border-color .2s, color .2s;
+}
+.pkg-btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* Testimonial text cards */
+.t-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+.t-stars { color: var(--gold); font-size: 0.95rem; margin-bottom: 10px; letter-spacing: 2px; }
+.t-text { color: var(--text-dim); font-size: 0.92rem; line-height: 1.7; margin-bottom: 14px; }
+.t-author { display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border); padding-top: 14px; }
+.t-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 0.75rem; color: #fff;
+}
+
+/* Testimonial image grid (proof) */
+.t-img-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 768px) { .t-img-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .t-img-grid { grid-template-columns: 1fr; } }
+.t-frame {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.t-frame::before {
+  content: attr(data-lbl);
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-dim); font-size: 0.85rem; text-align: center; padding: 16px;
+  z-index: 1;
+}
+.t-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
+
+/* Guarantee */
+.guarantee-box {
+  background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(0,240,255,0.06));
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: 18px;
+  padding: 32px 24px;
+  text-align: center;
+}
+.guarantee-icon { font-size: 2.5rem; margin-bottom: 14px; }
+
+/* FAQ */
+.faq-item { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 10px; }
+.faq-q {
+  width: 100%; background: transparent; border: none; color: var(--text);
+  font-weight: 800; font-size: 0.95rem; padding: 18px 20px; text-align: left;
+  cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+}
+.faq-icon { color: var(--cyan); font-size: 1.1rem; transition: transform .2s; display: inline-block; }
+.faq-item.open .faq-icon { transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease; color: var(--text-dim); padding: 0 20px; font-size: 0.92rem; line-height: 1.7; }
+.faq-item.open .faq-a { max-height: 260px; padding-bottom: 18px; }
+
+/* Order Card */
+.order-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+}
+.order-title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--cyan), var(--emerald));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.form-group { margin-bottom: 14px; }
+.form-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.form-input {
+  width: 100%;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.form-input:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(0,240,255,0.1); }
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239ca3af'%3E%3Cpath d='M6 9 1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer { margin-top: 60px; padding: 32px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-dim); font-size: 0.85rem; }
+
+/* Scroll-reveal helper */
+.reveal { opacity: 0; transform: translateY(30px); transition: all .6s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Urgency marquee bar -->
+<div class="urgency-bar">
+  🔥 ZamFlash Sale — 50% OFF Today Only &nbsp;|&nbsp; 💎 Premium Formulation | Zambia Official Center &nbsp;|&nbsp; 🚚 FREE Delivery Nationwide &nbsp;|&nbsp; ⏰ Offer Expires Soon
+</div>
+
+<div class="master-container">
+  <div class="nav">
+    <div class="logo">Deprime<span style="color:var(--text);opacity:.7">Healthcare</span></div>
+    <button class="nav-cta" onclick="scrollToForm()">⚡ Order Now</button>
+  </div>
+
+  <div class="split-layout">
+    <!-- LEFT PANEL: Full Product Encyclopedia + Explanations -->
+    <div class="left-panel">
+
+ <!-- Hero area with product poster 9:16 -->
+      <div class="badge">💎 Premium Formulation | Zambia Official Center</div>
+      <h1 class="hero-title">Unlock Peak Vitality &amp; Stamina—Naturally</h1>
+      <p class="hero-sub">
+        Advanced bio-available cellular support engineered for Zambia. Trusted by men across Lusaka, Kitwe, Ndola and Livingstone who refuse to settle for average.
+      </p>
+      <div class="trust-pills">
+        <span class="pill">🧪 100% Natural</span>
+        <span class="pill">🛡️ No Side Effects</span>
+        <span class="pill">🚚 Door-to-Door Delivery</span>
+        <span class="pill">💰 Cash on Delivery</span>
+      </div>
+
+      <!-- 9:16 Product Poster -->
+      <div class="poster-wrap">
+        <img src="product-poster.jpg" alt="Deprime Premium Product Poster" onerror="this.style.display='none'">
+        <div class="poster-fallback">
+          <span>🖼️</span>
+          <p>Product Poster<br><small>Insert 9:16 High-Resolution Image</small></p>
+        </div>
+      </div>
+
+      <!-- Countdown -->
+      <div class="stat-strip">
+        <div>
+          <div class="stat-digit" id="hours">02</div>
+          <div class="stat-label">Hours</div>
+        </div>
+        <div class="stat-sep">:</div>
+        <div>
+          <div class="stat-digit" id="minutes">47</div>
+          <div class="stat-label">Minutes</div>
+        </div>
+        <div class="stat-sep">:</div>
+        <div>
+          <div class="stat-digit" id="seconds">33</div>
+          <div class="stat-label">Seconds</div>
+        </div>
+        <div style="margin-left:12px;color:var(--text-dim);font-size:.85rem">
+          <span id="viewers" class="viewers">42</span> people viewing this now </div>
+      </div>
+
+      <!-- PROBLEM / AGITATION -->
+      <section class="section reveal">
+        <div class="text-center">
+          <p class="section-sub mx-auto">The quiet struggle that drains your energy, confidence and relationships.</p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-icon">😫</div>
+            <div class="card-title" style="color:var(--danger)">Chronic Physical Exhaustion</div>
+            <p>You wake up tired, hit a wall by midday, and collapse in the evening. Coffee and sugar only delay the crash.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🩸</div>
+            <div class="card-title" style="color:var(--danger)">Poor Circulation &amp; Recovery</div>
+            <p>Slowed blood flow means slower muscle recovery, reduced endurance, and that heavy “dead legs” feeling after any activity.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📉</div>
+            <div class="card-title" style="color:var(--danger)">Lost Drive &amp; Motivation</div>
+            <p>Low cellular energy robs your ambition in the boardroom and at home. You start avoiding the moments you once enjoyed.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <div class="card-title" style="color:var(--danger)">Synthetic Stimulant Crashes</div>
+            <p>Caffeine pills and energy drinks spike you for 30 minutes, then leave you with jitters, anxiety, and a deeper crash.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="section reveal">
+        <h2 class="section-heading">How It Works</h2>
+        <p class="section-sub">Bio-available organic extracts that penetrate at the cellular level to optimize circulation, oxygenate tissue and regenerate natural ATP stores.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-title">Take Daily</div>
+            <p>1 capsule in the morning and 1 at night. The adaptogenic matrix absorbs quickly into the bloodstream.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-title">Cellular Repair</div>
+            <p>Active compounds target mitochondrial function, dilate blood vessels and reduce oxidative stress.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-title">All-Day Performance</div>
+            <p>Within days you notice steadier energy, faster recovery, sharper focus and lasting stamina without jitters.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INGREDIENTS -->
+      <section class="section reveal">
+        <h2 class="section-heading">8 Power-Packed Ingredients</h2>
+        <p class="section-sub">Zero synthetic fillers. Just clean, laboratory-tested botanicals and minerals.</p>
+        <div class="chip-grid">
+          <div class="chip"><div class="chip-emoji">🟤</div><div class="chip-title">Maca Root</div><div class="chip-desc">Boosts libido &amp; endurance</div></div>
+          <div class="chip"><div class="chip-emoji">🌿</div><div class="chip-title">Tongkat Ali</div><div class="chip-desc">Supports natural testosterone</div></div>
+          <div class="chip"><div class="chip-emoji">🫐</div><div class="chip-title">L-Arginine</div><div class="chip-desc">Enhances blood flow</div></div>
+          <div class="chip"><div class="chip-emoji">🍊</div><div class="chip-title">Zinc</div><div class="chip-desc">Supports male vitality</div></div>
+          <div class="chip"><div class="chip-emoji">🌰</div><div class="chip-title">Tribulus</div><div class="chip-desc">Elevates drive &amp; power</div></div>
+          <div class="chip"><div class="chip-emoji">🧡</div><div class="chip-title">Ginseng</div><div class="chip-desc">Fights fatigue &amp; stress</div></div>
+          <div class="chip"><div class="chip-emoji">🫚</div><div class="chip-title">Ashwagandha</div><div class="chip-desc">Reduces cortisol spikes</div></div>
+          <div class="chip"><div class="chip-emoji">🖤</div><div class="chip-title">Fenugreek</div><div class="chip-desc">Amplifies performance output</div></div>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section class="section reveal">
+        <h2 class="section-heading">Key Benefits</h2>
+        <p class="section-sub">Why this formula is superior to standard energy boosters:</p>
+        <div class="grid-6">
+          <div class="card">
+            <div class="card-icon">⏱️</div>
+            <div class="card-title">Sustained All-Day Energy</div>
+            <p>No spike-and-crash cycles. Steady mitochondrial ATP output keeps you alert for 12+ hours.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">💪</div>
+            <div class="card-title">Faster Muscle Recovery</div>
+            <p>L-Arginine and zinc accelerate tissue repair so you bounce back faster after physical exertion.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">❤️</div>
+            <div class="card-title">Enhanced Circulation</div>
+            <p>Improved micro-circulation means better nutrient delivery, warmer extremities and sharper response times.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🧠</div>
+            <div class="card-title">Mental Clarity &amp; Focus</div>
+            <p>Ashwagandha and ginseng reduce brain fog and cortisol so you make better decisions under pressure.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🔋</div>
+            <div class="card-title">Zero Jitters or Anxiety</div>
+            <p>No caffeine overload. The formula is adaptogenic—it calms the nervous system while energizing the body.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🛡️</div>
+            <div class="card-title">100% Natural &amp; Certified</div>
+            <p>Every batch is laboratory-tested for purity, heavy metals and microbes. GMP-certified production.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BEFORE / AFTER -->
+      <section class="section reveal">
+        <h2 class="section-heading">Real Results in30 Days</h2>
+        <div class="grid-3">
+          <div class="compare-card">
+            <div class="compare-emoji">😫➡️😤</div>
+            <div style="color:var(--text-dim);font-size:.85rem;margin-bottom:6px">Daily Stamina</div>
+            <div class="compare-row"><span class="compare-from">Low</span>→<span class="compare-to">Beast Mode</span></div>
+          </div>
+          <div class="compare-card">
+            <div class="compare-emoji">🐢➡️🚀</div>
+            <div style="color:var(--text-dim);font-size:.85rem;margin-bottom:6px">Recovery Speed</div>
+            <div class="compare-row"><span class="compare-from">48+ hrs</span>→<span class="compare-to">Under 12 hrs</span></div>
+          </div>
+          <div class="compare-card">
+            <div class="compare-emoji">😟➡️😎</div>
+            <div style="color:var(--text-dim);font-size:.85rem;margin-bottom:6px">Confidence</div>
+            <div class="compare-row"><span class="compare-from">Anxious</span>→<span class="compare-to">Unstoppable</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PACKAGES (also links to form) -->
+      <section class="section reveal">
+        <h2 class="section-heading">Choose Your Package</h2>
+        <p class="section-sub">Every order includes free nationwide delivery and dedicated WhatsApp support.</p>
+        <div class="pkg-grid">
+          <div class="pkg-card">
+            <div class="pkg-badge">BASIC</div>
+            <div class="pkg-title">Starter Pack</div>
+            <div class="pkg-price">ZK 520</div>
+            <div class="pkg-old">ZK 1,040</div>
+            <div class="pkg-note">Perfect for first-timers ready to feel the difference.</div>
+            <button class="pkg-btn" onclick="selectPackage('1 Pack: ZK 520')">Select Package</button>
+          </div>
+          <div class="pkg-card pkg-popular">
+            <div class="pkg-top">🔥 MOST POPULAR — BEST VALUE</div>
+            <div class="pkg-badge" style="left:auto;right:12px;background:var(--gold);color:#000;">SAVE10%</div>
+            <div class="pkg-title">Power Pack</div>
+            <div class="pkg-price">ZK 936</div>
+            <div class="pkg-old">ZK 1,040</div>
+            <div class="pkg-note">93% of Zambian customers choose this pack for steady30-day results.</div>
+            <button class="pkg-btn" onclick="selectPackage('2 Packs (Save 10%): ZK 936')">Select Package</button>
+          </div>
+          <div class="pkg-card">
+            <div class="pkg-badge">SAVE 15%</div>
+            <div class="pkg-title">Ultimate Pack</div>
+            <div class="pkg-price">ZK 1,326</div>
+            <div class="pkg-old">ZK 1,560</div>
+            <div class="pkg-note">Maximum transformation. Maximum savings. Full60-capsule supply.</div>
+            <button class="pkg-btn" onclick="selectPackage('3 Packs (Save 15%): ZK 1,326')">Select Package</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- WRITTEN TESTIMONIALS -->
+      <section class="section reveal">
+        <h2 class="section-heading">What Our Clients Say</h2>
+        <p class="section-sub">Verified reviews from Zambian men who made the switch.</p>
+        <div class="grid-3">
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"I was sceptical but after one week I noticed my energy lasting through the full workday. By day 14 I was training again and recovering like I did10 years ago."</div>
+            <div class="t-author"><div class="t-avatar">CB</div><div><div style="font-weight:700;font-size:.9rem">Chanda B.</div><div style="color:var(--text-dim);font-size:.75rem">Lusaka — Verified Buyer ✅</div></div></div>
+          </div>
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"No jitters, no crash. Just clean energy. I run a welding shop in Kitwe and these capsules keep me sharp from 6am to 7pm without that drained feeling."</div>
+            <div class="t-author"><div class="t-avatar">MK</div><div><div style="font-weight:700;font-size:.9rem">Mutale K.</div><div style="color:var(--text-dim);font-size:.75rem">Kitwe — Verified Buyer ✅</div></div></div>
+          </div>
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"My wife noticed before I did. She said I’m not exhausted in the evenings anymore. I re-ordered the 3-pack immediately. Best decision this year."</div>
+            <div class="t-author"><div class="t-avatar">BJ</div><div><div style="font-weight:700;font-size:.9rem">Bwalya J.</div><div style="color:var(--text-dim);font-size:.75rem">Ndola — Verified Buyer ✅</div></div></div>
+          </div>
+ <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"Delivery to Livingstone took only 2 days. The cash-on delivery option gave me peace of mind. After 3 weeks I feel like a completely different man."</div>
+            <div class="t-author"><div class="t-avatar">SA</div><div><div style="font-weight:700;font-size:.9rem">Sibeso A.</div><div style="color:var(--text-dim);font-size:.75rem">Livingstone — Verified Buyer ✅</div></div></div>
+          </div>
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"I tried everything from energy drinks to imported pills. Nothing worked without side effects. Deprime is the first formula that delivers cleanly, day after day."</div>
+            <div class="t-author"><div class="t-avatar">KM</div><div><div style="font-weight:700;font-size:.9rem">Kapembwa M.</div><div style="color:var(--text-dim);font-size:.75rem">Lusaka — Verified Buyer ✅</div></div></div>
+          </div>
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <div class="t-text">"Was avoiding the gym because I couldn't recover. Now I train4 times a week and still have energy for my family. Truly grateful for this product."</div>
+            <div class="t-author"><div class="t-avatar">TR</div><div><div style="font-weight:700;font-size:.9rem">Tembo R.</div><div style="color:var(--text-dim);font-size:.75rem">Chipata — Verified Buyer ✅</div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHATSAPP IMAGE PROOF GRID -->
+ <section class="section reveal">
+        <h2 class="section-heading" style="text-align:center">💬 What Our Clients in Zambia Say</h2>
+        <p class="text-center" style="color:var(--text-dim);margin:8px 0 20px">Real WhatsApp delivery confirmations and feedback screenshots.</p>
+        <div class="t-img-grid">
+          <div class="t-frame" data-lbl="WhatsApp Proof 1: Place testimonial1.jpg here"><img src="testimonial1.jpg" alt="Client Proof 1" onerror="this.style.display='none'"></div>
+          <div class="t-frame" data-lbl="WhatsApp Proof 2: Place testimonial2.jpg here"><img src="testimonial2.jpg" alt="Client Proof 2" onerror="this.style.display='none'"></div>
+          <div class="t-frame" data-lbl="WhatsApp Proof 3: Place testimonial3.jpg here"><img src="testimonial3.jpg" alt="Client Proof 3" onerror="this.style.display='none'"></div>
+          <div class="t-frame" data-lbl="WhatsApp Proof 4: Place testimonial4.jpg here"><img src="testimonial4.jpg" alt="Client Proof 4" onerror="this.style.display='none'"></div>
+          <div class="t-frame" data-lbl="WhatsApp Proof 5: Place testimonial5.jpg here"><img src="testimonial5.jpg" alt="Client Proof 5" onerror="this.style.display='none'"></div>
+          <div class="t-frame" data-lbl="WhatsApp Proof 6: Place testimonial6.jpg here"><img src="testimonial6.jpg" alt="Client Proof 6" onerror="this.style.display='none'"></div>
+        </div>
+      </section>
+
+      <!-- GUARANTEE -->
+      <section class="section reveal">
+        <div class="guarantee-box">
+          <div class="guarantee-icon">🛡️</div>
+          <h2 style="font-size:1.5rem;font-weight:900;margin-bottom:10px">30-Day Money-Back Guarantee</h2>
+          <p style="color:var(--text-dim);max-width:560px;margin:0 auto;line-height:1.75">
+ We are so confident in Deprime that we offer a full <strong style="color:var(--emerald)">30-day money-back guarantee</strong>. If you do not feel noticeable results within 30 days, contact our Lusaka support center via WhatsApp and we will refund every ngwee — no questions asked.
+          </p>
+          <p style="margin-top:12px;color:var(--emerald);font-weight:800">You either get RESULTS, or you get your money back. Period.</p>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section reveal" id="faq">
+        <h2 class="section-heading">Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How fast will I see results? <span class="faq-icon">▼</span></button>
+          <div class="faq-a">Most men notice steadier energy and reduced fatigue within 5–7 days. Performance, circulation and recovery improvements typically peak after 3–4 weeks of consistent use.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Are there any side effects? <span class="faq-icon">▼</span></button>
+          <div class="faq-a">Deprime is 100% natural and laboratory-tested for purity. There are no synthetic stimulants, caffeine or harsh chemicals. No jitters, no crashes, no dependency.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do I take it? <span class="faq-icon">▼</span></button>
+          <div class="faq-a">Take 1 capsule in the morning and 1 capsule at night with water. For maximum effect on intensive days, you may take 1 additional capsule 30 minutes before activity.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How long does delivery take? <span class="faq-icon">▼</span></button>
+          <div class="faq-a">Lusaka &amp; Copperbelt: 24–48 hours. Other provinces: 48–72 hours. Remote areas: up to 4 days. Delivery is 100% free nationwide.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I pay on delivery? <span class="faq-icon">▼</span></button>
+          <div class="faq-a">Yes. We offer Cash on Delivery and Mobile Money on delivery. You only pay when the package is physically in your hands.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is this only for men? <span class="faq-icon">▼</span></button>
+          <div class="faq-a">While the formula is optimized for male physiology, the circulation and energy benefits support active women too. If pregnant or on medication, please consult your doctor first.</div>
+        </div>
+      </section>
+
+      <!-- VALUE CHECKLIST (original requirement) -->
+      <section class="section reveal">
+        <h2 class="section-heading">Your Value Checklist</h2>
+        <div class="card" style="border-color:rgba(16,185,129,0.25);background:rgba(16,185,129,0.04)">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
+            <li style="color:var(--emerald);font-weight:800;font-size:1.02rem;background:rgba(16,185,129,0.08);padding:14px 16px;border-radius:10px;border:1px solid rgba(16,185,129,0.2);position:relative;padding-left:44px">
+ <span style="position:absolute;left:16px;top:13px;font-size:1.2rem">✓</span>
+              Prescription Instructions: Take 1 capsule in the morning and 1 capsule at night for optimal, steady all-day performance.
+            </li>
+            <li style="color:var(--text-dim);position:relative;padding-left:34px;font-size:0.95rem">
+              <span style="position:absolute;left:0;color:var(--emerald);font-weight:900;font-size:1.1rem">✓</span>
+              100% natural, laboratory-tested formulation with zero synthetic additives or caffeine.
+            </li>
+            <li style="color:var(--text-dim);position:relative;padding-left:34px;font-size:0.95rem">
+              <span style="position:absolute;left:0;color:var(--emerald);font-weight:900;font-size:1.1rem">✓</span>
+              Discreet door-to-door delivery anywhere in Zambia within 48–72 hours.
+            </li>
+            <li style="color:var(--text-dim);position:relative;padding-left:34px;font-size:0.95rem">
+              <span style="position:absolute;left:0;color:var(--emerald);font-weight:900;font-size:1.1rem">✓</span>
+              Cash on delivery or mobile money accepted — you pay only when you receive.
+            </li>
+            <li style="color:var(--text-dim);position:relative;padding-left:34px;font-size:0.95rem">
+              <span style="position:absolute;left:0;color:var(--emerald);font-weight:900;font-size:1.1rem">✓</span>
+              Dedicated WhatsApp support team based at our Lusaka fulfillment center.
+ </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p style="font-weight:700;font-size:1rem;margin-bottom:6px">Deprime Healthcare Zambia</p>
+        <p style="margin-bottom:4px">Official Premium Formulation Center</p>
+        <p style="font-size:.8rem;opacity:.7">© 2026 Deprime Healthcare. All rights reserved.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Fixed Order Card -->
+    <div class="right-panel">
+ <div class="order-card" id="orderCard">
+        <div class="order-title">⚡ Secure Your Order Instantly</div>
+        <form id="orderForm" autocomplete="on">
+          <div class="form-group">
+            <label class="form-label" for="fullName">Full Name</label>
+            <input class="form-input" type="text" id="fullName" name="fullName" placeholder="e.g. John Banda" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phoneNumber">Phone Number</label>
+            <input class="form-input" type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g. 0977 123456" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="whatsappNumber">WhatsApp Number</label>
+            <input class="form-input" type="tel" id="whatsappNumber" name="whatsappNumber" placeholder="e.g. 0977 123456" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="deliveryAddress">Delivery Address</label>
+            <input class="form-input" type="text" id="deliveryAddress" name="deliveryAddress" placeholder="Street, area, nearest landmark" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="province">Province / Region</label>
+            <input class="form-input" type="text" id="province" name="province" placeholder="e.g. Lusaka Province" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="city">City / Town</label>
+            <input class="form-input" type="text" id="city" name="city" placeholder="e.g. Lusaka" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="package">Select Your Package</label>
+            <select class="form-input" id="package" name="package" required>
+              <option value="1 Pack: ZK 520">1 Pack: ZK 520</option>
+              <option value="2 Packs (Save 10%): ZK 936">2 Packs (Save 10%): ZK 936</option>
+              <option value="3 Packs (Save 15%): ZK 1,326">3 Packs (Save 15%): ZK 1,326</option>
+            </select>
+          </div>
+          <button type="submit" class="cta-button" style="margin-top:6px">Complete Secure Order</button>
+ <p class="text-center" style="color:var(--text-dim);font-size:.82rem;margin-top:10px">🔒 Encrypted submission. No spam. WhatsApp confirmation only.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ========== CONFIG ========== */
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID_HERE';
+const BUSINESS_WHATSAPP   = '260XXXXXXXXX'; // Zambia WhatsApp number (no +)
+
+/* ========== UTILITIES ========== */
+function scrollToForm() {
+  document.getElementById('orderCard').scrollIntoView({ behavior:'smooth', block:'center' });
+}
+function selectPackage(val) {
+  document.getElementById('package').value = val;
+  scrollToForm();
+  const card = document.getElementById('orderCard');
+  card.style.boxShadow = '0 0 0 3px rgba(0,240,255,0.25)';
+  setTimeout(()=> card.style.boxShadow = '', 1000);
+}
+
+/* ========== COUNTDOWN ========== */
+let totalSeconds = 2*3600 + 47*60 + 33;
+function updateCountdown() {
+  if (totalSeconds <= 0) totalSeconds = 2*3600 + 47*60 + 33;
+  const h = Math.floor(totalSeconds / 3600);
+  const m = Math.floor((totalSeconds % 3600) / 60);
+  const s = totalSeconds % 60;
+  document.getElementById('hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+  document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+  totalSeconds--;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+/* ========== VIEWER COUNT ========== */
+function updateViewers() {
+  const el = document.getElementById('viewers');
+  let n = parseInt(el.textContent) + Math.floor(Math.random()*5) - 2;
+  el.textContent = Math.max(28, Math.min(76, n));
+}
+setInterval(updateViewers, 8000);
+
+/* ========== FAQ ACCORDION ========== */
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const all = document.querySelectorAll('.faq-item');
+  all.forEach(function(it){
+ if (it !== item) it.classList.remove('open');
+  });
+  item.classList.toggle('open');
+}
+
+/* ========== FORM SUBMISSION: Formspree + WhatsApp ========== */
+document.getElementById('orderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const btn = this.querySelector('button[type="submit"]');
+  const original = btn.innerText;
+  btn.innerText = 'Processing Secure Order…';
+  btn.disabled = true;
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  const bodyLines = [
+    '*New Order — Deprime Healthcare Zambia*',
+    '',
+    '👤 *Full Name:* ' + data.fullName,
+    '📞 *Phone:* ' + data.phoneNumber,
+    '💬 *WhatsApp:* ' + data.whatsappNumber,
+    '📍 *Address:* ' + data.deliveryAddress,
+    '🏛️ *Province/Region:* ' + data.province,
+    '🏙️ *City/Town:* ' + data.city,
+    '📦 *Package:* ' + data.package,
+    '',
+    '_Please confirm my order._'
+  ];
+  const waText = encodeURIComponent(bodyLines.join('\n'));
+  const waURL = 'https://wa.me/' + BUSINESS_WHATSAPP + '?text=' + waText;
+
+  fetch(FORMSPREE_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Accept':'application/json', 'Content-Type':'application/json' },
+    body: JSON.stringify(data)
+  })
+  .catch(function(err){
+    console.error('Formspree error:', err);
+  })
+  .finally(function(){
+ window.location.href = waURL;
+    setTimeout(function(){
+      btn.innerText = original;
+      btn.disabled = false;
+    }, 5000);
+  });
+});
+
+/* ========== SCROLL REVEAL ========== */
+const revealObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if (en.isIntersecting) { en.target.classList.add('active'); revealObs.unobserve(en.target); }
+  });
+}, {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
+</script>
+
+</body>
+</html>
