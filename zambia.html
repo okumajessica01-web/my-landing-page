@@ -855,7 +855,7 @@ select.form-input {
 <script>
 /* ========== CONFIG ========== */
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xbdnknyb';
-const BUSINESS_WHATSAPP   = '260XXXXXXXXX'; // Zambia WhatsApp number (no +)
+const BUSINESS_WHATSAPP   = '260961785082'; // Zambia WhatsApp number (no +)
 
 /* ========== UTILITIES ========== */
 function scrollToForm() {
@@ -927,7 +927,7 @@ document.getElementById('orderForm').addEventListener('submit', function(e){
     '_Please confirm my order._'
   ];
   const waText = encodeURIComponent(bodyLines.join('\n'));
-  const waURL = 'https://wa.me/' + BUSINESS_WHATSAPP + '?text=' + waText;
+  const waURL = 'https://wa.me/' + 260961785082 + '?text=' + waText;
 
   fetch(FORMSPREE_ENDPOINT, {
     method: 'POST',
